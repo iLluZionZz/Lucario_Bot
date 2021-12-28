@@ -1,4 +1,4 @@
-"# Lucario_Bot" 
+###Lucario_Bot 
 Lucario Bot is a private Discord Bot made for a Pokemon Discord community. 
 Although its use is private, its code is completely open sourced. If you care to use it- or blatantly rebrand it; is up to you. The github commits are not a complete representation of the bots functionality anyways.
 

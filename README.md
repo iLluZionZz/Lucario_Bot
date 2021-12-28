@@ -18,3 +18,4 @@ MONGODB_SRV - Token for logging into mongoDB
 DISCORD_TOKEN - Bot Token for logging onto discord
 
 Read package.json for the required installed packages in order to run. 
+

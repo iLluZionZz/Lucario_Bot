@@ -1,0 +1,115 @@
+{
+    "pages": {
+    "1": {
+      "items": [
+        {
+          "name": "Pokeball",
+          "cost": 200,
+          "OnlyBuyOne": false,
+          "CanBeSold": true,
+          "QueryIndex": 1
+        },
+        {
+          "name": "Greatball",
+          "cost": 500,
+          "OnlyBuyOne": false,
+          "CanBeSold": true,
+          "QueryIndex": 2
+        },
+        {
+          "name": "Ultraball",
+          "cost": 1500,
+          "OnlyBuyOne": false,
+          "CanBeSold": true,
+          "QueryIndex": 3
+        },
+        {
+          "name": "Red Card",
+          "cost": 10000,
+          "OnlyBuyOne": false,
+          "CanBeSold": true,
+          "QueryIndex": 4
+        },
+        {
+          "name": "Eviolite",
+          "cost": 15000,
+          "OnlyBuyOne": false,
+          "CanBeSold": true,
+          "QueryIndex": 5
+        },
+        {
+          "name": "Amulet Coin",
+          "cost": 150000,
+          "OnlyBuyOne": true,
+          "CanBeSold": false,
+          "QueryIndex": 6
+        }
+      ]
+    },
+    "2": {
+      "items": [
+        {
+          "name": "Shiny Charm",
+          "cost": 150000,
+          "OnlyBuyOne": true,
+          "CanBeSold": false,
+          "QueryIndex": 10
+        },
+        {
+          "name": "Secret Medicine",
+          "cost": 1,
+          "OnlyBuyOne": true,
+          "CanBeSold": false,
+          "keyitem": true,
+          "hidden": true,
+          "QueryIndex": 11
+        },
+        {
+          "name": "Galactic Key",
+          "cost": 1,
+          "OnlyBuyOne": true,
+          "CanBeSold": false,
+          "keyitem": true,
+          "hidden": true,
+          "QueryIndex": 12
+        },
+        {
+          "name": "Acro Bike",
+          "cost": 1,
+          "OnlyBuyOne": true,
+          "CanBeSold": false,
+          "keyitem": true,
+          "hidden": true,
+          "QueryIndex": 13
+        },
+        {
+          "name": "Explorer Kit",
+          "cost": 1000000000,
+          "OnlyBuyOne": true,
+          "CanBeSold": true,
+          "keyitem": true,
+          "hidden": true,
+          "QueryIndex": 14
+        },
+        {
+          "name": "Apricorn Box",
+          "cost": 1000000000,
+          "OnlyBuyOne": true,
+          "CanBeSold": true,
+          "keyitem": true,
+          "hidden": true,
+          "QueryIndex": 15
+        },
+        {
+          "name": "Coin Case",
+          "cost": 1000000000,
+          "OnlyBuyOne": true,
+          "CanBeSold": true,
+          "keyitem": true,
+          "hidden": true,
+          "QueryIndex": 16
+        }
+      ]
+    }
+  }
+}

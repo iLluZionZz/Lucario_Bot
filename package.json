@@ -1,0 +1,31 @@
+{
+  "name": "lucariobot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/opus": "^0.5.3",
+    "@iamtraction/google-translate": "^1.1.2",
+    "axios": "^0.24.0",
+    "discord.js": "^13.3.1",
+    "dotenv": "^10.0.0",
+    "ffmpeg-static": "^4.4.0",
+    "glob": "^7.2.0",
+    "jsonfile": "^6.1.0",
+    "line-reader": "^0.4.0",
+    "lyrics-finder": "^21.7.0",
+    "moment": "^2.29.1",
+    "mongoose": "^5.12.15",
+    "node-fetch": "^2.6.6",
+    "opusscript": "0.0.8",
+    "pokedex-promise-v2": "^3.3.2",
+    "randomstring": "^1.2.1",
+    "yt-search": "^2.10.2",
+    "ytdl-core": "^4.9.2"
+  }
+}

@@ -3,7 +3,7 @@ module.exports = {
     description: "mutes the specified user",
     aliases: ['mute'],
     execute (client, message, args){
-        if(message.member.hasPermission('ADMINISTRATOR', 'KICK_MEMBERS', 'BAN_MEMBERS')){
+        if(message.member.permissions.has('ADMINISTRATOR', 'KICK_MEMBERS', 'BAN_MEMBERS')){
         const target = message.mentions.users.first();
         if(target){
             let mainRole = message.guild.roles.cache.find(role => role.name === 'Member');

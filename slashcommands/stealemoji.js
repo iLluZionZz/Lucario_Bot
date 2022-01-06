@@ -3,7 +3,6 @@ const { CommandInteracion, Client, MessageEmbed, Util } = require('discord.js');
 module.exports = {
    name: 'stealemoji',
    description: 'Steal an emoji from another server',
-    options: [{name: 'emoji', type: "STRING", description: "The emoji you want to steal", require: true}], // you dont have to include these in some commands
    /**
    *
    * @param {Client} client

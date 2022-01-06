@@ -16,7 +16,7 @@ module.exports = {
         const newEmbed = new Discord.MessageEmbed()
         .setColor('#0375ff')
         .setTitle('Pokemon Links!')
-        .setDescription('Did you mean "/pokedex"? Use this command instead to lookup Pokemon! \n This bot & server is not affiliated with the Pokemon company or Serebii.')
+        .setDescription(`Did you mean " ${process.env.PREFIX}pokedex "? Use this command instead to lookup Pokemon! \n This bot & server is not affiliated with the Pokemon company or Serebii.`)
         .addFields(
             {name: `All Things Pokemon ${Pokeball}`, value: `[The Pokemon Company](https://www.pokemon.com/us/) \n [Serebii](https://www.serebii.net/)`, inline: true},
             {name: `Pokemon TCG ${TCG}`, value: `[The Pokemon Company](https://www.pokemon.com/us/pokemon-tcg/) \n [Serebii Card Dex](https://www.serebii.net/card/english.shtml)`, inline: true},
@@ -30,12 +30,10 @@ module.exports = {
         )
         .setFooter('This message will be deleted in 20 seconds, to remove clutter.');
 
-        message.channel.send(newEmbed)
+        message.channel.send({ embeds: [newEmbed] })
         .then(msg => {
-            msg.delete({ timeout: 20000 /*time unitl delete in milliseconds*/});
+            setTimeout(() => msg.delete(), 20000)
         })
-        .catch((err)=>{
-            console.log(err);
-        })
+        .catch()
     }
 }

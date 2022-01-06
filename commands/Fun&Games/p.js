@@ -53,7 +53,7 @@ module.exports = {
                 .setTimestamp() 
                 .setFooter('Lucario Bot Pokedex');
 
-                channel.send(exampleEmbed);
+                channel.send({ embeds: [exampleEmbed] });
                 message.reply(`${formatName(name)} found. <#854458555997880341>`);
             })
             .catch((err) => {

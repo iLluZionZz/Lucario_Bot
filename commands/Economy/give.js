@@ -15,7 +15,7 @@ module.exports = {
 
     try {
       const targetData = await profileModel.findOne({ userID: target.id });
-      if (!targetData) return message.channel.send(`This user doens't exist in the db`);
+      if (!targetData) return message.channel.send(`This user doens't exist in the database`);
 
       await profileModel.findOneAndUpdate(
         {

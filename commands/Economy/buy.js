@@ -47,9 +47,8 @@ module.exports = {
       return message.channel.send("You cannot afford this item; transfer money to your wallet or get more!");
     }
 
-    if(itemname === 'pokeball' || 'greatball' || 'ultraball'){
-      var itemplaceholder = itemname+'s'
-      console.log(itemplaceholder)
+    if(itemname === 'pokeball' || itemname === 'greatball' || itemname === 'ultraball'){ // IF YOU REMOVE THIS, CODE WORKS FINE - FOR SOME REASON IT PASSES THIS CHECK AND USES THIS UPDATE ANYWAYS
+      let itemplaceholder = itemname+'s'
 
       await profileModel.findOneAndUpdate(
         {
@@ -62,7 +61,7 @@ module.exports = {
             },
         }
         );
-        message.channel.send(`You just bought ${amountbought} ${itemname}s!`)
+        message.channel.send(`You just bought ${amountbought} ${itemname.charAt(0).toUpperCase() + itemname.slice(1)}(s)!`)
 
         if(amountbought >= 10){
           var premierballamount = Math.floor(amountbought / 10)

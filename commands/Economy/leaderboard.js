@@ -17,9 +17,12 @@ module.exports = {
         for(const [key, value] of c) {
             const keyarray = [key]
             const list = keyarray.slice(0,10)
-            const member = client.users.fetch(key)
-            exampleEmbed.addField(`${member.displayName}`, `Level: ${value.level} | XP: ${value.xp}`)
-            console.log(list)
+            const guild = client.guilds.cache.get('579837419449221233')
+            for (let i =0; i < list.length; i++ ){
+                await guild.members.fetch(list[i]).then((data) => 
+                exampleEmbed.addField(`${data.displayName}`, `Level: ${value.level} | XP: ${value.xp}`))
+                .catch(err => console.log(err));
+            }
         }
     
     message.channel.send({ embeds: [exampleEmbed] })

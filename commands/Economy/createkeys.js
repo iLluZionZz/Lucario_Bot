@@ -6,7 +6,7 @@ module.exports = {
     description: "test",
     async execute (client, message, args, Discord){
 
-        if(message.member.hasPermission('ADMINISTRATOR')){
+        if(message.member.permissions.has("ADMINISTRATOR")){
 
             const createdKey = randomstring.generate(10);
             console.log(createdKey)

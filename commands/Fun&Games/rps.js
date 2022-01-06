@@ -20,14 +20,14 @@ module.exports = {
 
         const choices = ['🗻', '✂', '📰']
         const me = choices[Math.floor(Math.random() * choices.length)]
-        msg.awaitReactions(filter, {max: 1, time: 60000, error: ["time"]}).then(
+        msg.awaitReactions({ filter, max: 1, time: 60000, error: ["time"] }).then(
             async(collected) => {
                 const reaction = collected.first()
                 let result = new Discord.MessageEmbed()
                 .setTitle("Result")
                 .addField("Your Choice", `${reaction.emoji.name}`)
                 .addField("My choice", `${me}`)
-                await msg.edit(result)
+                await msg.edit({ embeds: [result] })
 
                 if((me === "🗻" && reaction.emoji.name === "✂") ||
                 (me === "✂" && reaction.emoji.name === "📰") ||

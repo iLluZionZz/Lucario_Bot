@@ -16,7 +16,8 @@ module.exports = {
     
     message.channel.send({ embeds: [exampleEmbed] })
     .then(msg => {
-        msg.delete({ timeout: 20000 /*time unitl delete in milliseconds*/});
+        setTimeout(() => msg.delete(), 20000)
     })
+    .catch()
     }
 }

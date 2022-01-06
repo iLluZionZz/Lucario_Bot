@@ -3,7 +3,7 @@ module.exports = {
     description: "bans the specified user",
     execute (client, message, args){
         const member = message.mentions.users.first();
-        if(message.member.hasPermission('ADMINISTRATOR', 'BAN_MEMBERS')){
+        if(message.member.permissions.has('ADMINISTRATOR', 'BAN_MEMBERS')){
         if(member){
             const memberTarget = message.guild.members.cache.get(member.id);
             let reason = args.slice(1).join(' ');

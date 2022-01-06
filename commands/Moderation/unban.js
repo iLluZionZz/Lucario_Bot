@@ -4,7 +4,7 @@ module.exports = {
     async execute (client, message, args){
         const Banlist = await message.guild.fetchBans();
         const bannedUser = Banlist.find(args[0]);
-        if(message.member.hasPermission('ADMINISTRATOR', 'BAN_MEMBERS')){
+        if(message.member.permissions.has('ADMINISTRATOR', 'BAN_MEMBERS')){
             if(ars[1]) return message.channel.send('Please paste the id of the user you want unbanned.')
             const memberTarget = message.fetch(args[0]);
             if(memberTarget = bannedUser) {

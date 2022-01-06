@@ -26,11 +26,11 @@ module.exports = {
         const exampleEmbed2 = new Discord.MessageEmbed()
             .setAuthor('Pokedex', 'https://i.imgur.com/RWFriKR.png')
             .setColor("#4cb942")
-            .setTitle('Wassup bitches')
+            .setTitle('Code claimed!')
             .setDescription(`Congrats, you just claimed your key! \n \`${userStats.key}\` \n This code will no longer work in the future.`)
             channel.send(exampleEmbed2)
             modchannel.send(exampleEmbed2) //Create 2 different embeds if you want a different one sent publicly and another sent to a mod only channel
 
-        }else return message.channel.send(`You've already claimed this key! ${userStats.key}`)
+        }else return message.channel.send(`You've already claimed a key! ${userStats.key}`)
     }      
 };

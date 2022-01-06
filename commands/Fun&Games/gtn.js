@@ -40,7 +40,7 @@ module.exports = {
 
         const pickinganumber = new Discord.MessageEmbed()
             .setColor('#33F304')
-            .setDescription(`**Picking a number between 1 and 20000** \n Please keep responding with /gtn to continue guessing the number, I'll guide you!`)
+            .setDescription(`**Picking a number between 1 and 20000** \n Please keep responding with ${process.env.PREFIX}gtn to continue guessing the number, I'll guide you!`)
 
         await guildNumberMap(message);
         await guildAttemptsMap(message);

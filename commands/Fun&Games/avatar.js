@@ -3,16 +3,19 @@ module.exports = {
     aliases: ['icon', 'pfp', 'profilepic'],
     description: 'Return a user(s) avatar picture!',
     //Use your own execute parameters
-    execute(client, message, args, cmd) {
+    async execute(client, message, args, Discord) {
 
-        if (!message.mentions.users.size) {
-            return message.channel.send(`**Your Avatar: ** ${message.author.displayAvatarURL({ dynamic: true })}`);
-        }
+        const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
-        const avatar_list = message.mentions.users.map(user => {
-            return `**${user.username}'s Avatar: ** ${user.displayAvatarURL({ dynamic: true })}`;
-        });
+        if(!args[0]) return message.channel.send('Please Tag a Person');
 
-        message.channel.send(avatar_list);
+        const avatarembed = new Discord.MessageEmbed()
+        .setTitle(`${member.user.tag}'s Avatar`)
+        .setImage(member.user.displayAvatarURL({dynamic: true}))
+        .setColor("RED")
+        .setTimestamp()
+
+        message.channel.send({ephemeral: true, embeds: [avatarembed]});
+
     }
 }

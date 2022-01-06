@@ -11,6 +11,7 @@ module.exports = {
         .setDescription(`${member.username} is ` + rng + "% Gay🌈")
         .setColor("GREEN")
 
-        message.channel.send(howgayembed);
+        message.channel.send({ embeds: [howgayembed] })
+
     }
 }

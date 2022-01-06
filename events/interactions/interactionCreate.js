@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js')
+const { Message } = require('discord.js')
 
 module.exports = {
     name: "interactionCreate",
@@ -11,13 +11,16 @@ module.exports = {
             const args = []
             interaction.options.data.map((x) => {
                 args.push(x.value)
-            })
+            });
            
            
             cmd.execute(interaction, client, args)
-            
-            }
-         
+        };
+        
+        if(interaction.isButton()){
+            console.log(interaction);
 
+            interaction.reply({ content: `${interaction.user.tag} clicked me!` })
+        };
     }
 }

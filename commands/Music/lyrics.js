@@ -7,7 +7,7 @@ module.exports = {
     async execute(client, message, args, Discord) {
         if (!args.length) return message.channel.send('No song specified'); // Handles empty search queries
 
-        let embed = new Discord.MessageEmbed().setColor('RANDOM').setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL()); // Constructing the embed
+        let newembed = new Discord.MessageEmbed().setColor('RANDOM').setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL()); // Constructing the embed
         let lyric = await lyrics(args.join(' ')); // Searching for the lyrics on Google
         let noLyric = 0 // Indicates if the lyrics exist or not
 
@@ -16,14 +16,14 @@ module.exports = {
             noLyric++ // Increments noLyric to indicate theres no lyrics
         }
 
-        embed.setDescription(lyric.length >= 4093 ? lyric.substring(0, 4093) + '...' : lyric); // Adds the lyrics to the embed
+        newembed.setDescription(lyric.length >= 4093 ? lyric.substring(0, 4093) + '...' : lyric); // Adds the lyrics to the embed
 
         if (noLyric == 0) {
             let res = await yt.search(args.join(' ')); // Searches the song name on youtube
             let song = res.videos[0]; // Chooses the first result
-            if (song) embed.setTitle(song.title).setURL(song.url).setThumbnail(song.image) // Adds the youtube video data to the embed
+            if (song) newembed.setTitle(song.title).setURL(song.url).setThumbnail(song.image) // Adds the youtube video data to the embed
         }
 
-        message.channel.send(embed) // Sends the embed
+        message.channel.send({ embeds: [newembed]}) // Sends the embed
     }
 }

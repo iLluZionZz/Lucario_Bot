@@ -22,7 +22,7 @@ If you do plan to use this bot, read package.json for the required installed pac
 - keys.json
 
 The .ENV file MUST contain:
-PREFIX - The prefix used for the bot.
-MONGODB_SRV - Token for logging into mongoDB 
-DISCORD_TOKEN - Bot Token for logging onto discord
-WELCOME - 0 or 1, for a welcome message - 1 turns it on. 
+- PREFIX - The prefix used for the bot.
+- MONGODB_SRV - Token for logging into mongoDB 
+- DISCORD_TOKEN - Bot Token for logging onto discord
+- WELCOME - 0 or 1, for a welcome message - 1 turns it on. 

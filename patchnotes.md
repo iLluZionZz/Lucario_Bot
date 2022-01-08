@@ -5,13 +5,13 @@
 <br />
 <p>v1.1 STABLE Release:<br />
 <p>Fixed deprecated commands from Discord.js v12. This includes:
-- play.js
-- profile.js
-- leaderboard.js
-- buy.js
-- sell.js
-- claim&createkey.js
-- Any and ALL commands that use embeds
+-play.js
+-profile.js
+-leaderboard.js
+-buy.js
+-sell.js
+-claim&createkey.js
+-Any and ALL commands that use embeds
 <br />
 
 <p>Music playing is finicky. It will work, but the changes in Discord.js v13 resulted in me removing the queue system completely and creating a new command from scratch. See Known Errors for more about this.<br />

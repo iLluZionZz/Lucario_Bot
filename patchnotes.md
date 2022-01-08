@@ -35,7 +35,7 @@
 
 <li>New Discord voice channel games have been added. Join a voice channel using the link provided to start playing!</li>
 <li>Several utility commands related to the bot's health and condition have been added.</li>
-<li>New moderation commands make it ~~easier for me to abuse my powers~~ easier for moderators to utilise.</li>
+<li>New moderation commands make it <s>easier for me to abuse my powers</s> easier for moderators to utilise.</li>
 <li>Started to prepare the bot for multi-guild (server) functionality. I may make the bot public if I get good enough at this.</li>
 <li>I've added a welcome message, but have not turned it on. I will do this when I can host it somewhere other than my computer.</li>
 <br />

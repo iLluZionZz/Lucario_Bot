@@ -1,7 +1,6 @@
 module.exports = {
     name: "spotifysearch",
-    description: "idek",
-
+    description: "Searches spotify for the song and gives the link",
     async execute(client, message, args, Discord){
         let msglink = args.join('%20') // we're joining the args using %20, so if the args are Hello World it would be Hello%20World
         let msg = args.join(' ') // we're joining the args using a space. If you don't have the space Hello World would be HelloWorld

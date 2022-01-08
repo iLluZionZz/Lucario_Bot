@@ -2,7 +2,7 @@ const axios = require('axios');
 module.exports = {
     name: 'pokedex',
     cooldown: 10,
-    description: "displays list of pokemon",
+    description: "Displays a Pokemon's info",
     execute (client, message, args, Discord) {
         if(!args[0]) return message.reply("Enter a Pokemon name or National dex number.");
         channel = client.channels.cache.get ('854458555997880341'); //designated channel to throw embed

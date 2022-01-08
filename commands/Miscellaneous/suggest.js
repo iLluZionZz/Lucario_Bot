@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 module.exports = {
     name: 'suggest',
     aliases: ['suggest', 'suggestion'],
-    description: 'creates a suggestion!',
+    description: 'Creates a suggestion for people to vote for!',
     execute (client, message, args, Discord){
         const channel = client.channels.cache.get ('827497710830747658');
         if(!channel) return message.channel.send('suggestions channel does not exist!');

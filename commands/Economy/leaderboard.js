@@ -3,7 +3,7 @@ const jsonfile = require('jsonfile');
 
 module.exports = {
     name: 'leaderboard',
-    description: "displays list of people in server by order of xp / level]",
+    description: "Displays list of people in server by order of xp / level]",
     async execute (client, message, args, Discord){
         let db = JSON.parse(fs.readFileSync('stats.json'));
         let stats = db[message.guild.id]

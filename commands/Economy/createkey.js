@@ -3,7 +3,7 @@ jsonfile = require('jsonfile')
 randomstring = require('randomstring')
 module.exports = {
     name: 'createkey',
-    description: "test",
+    description: "Create a key for a user to claim",
     async execute (client, message, args, Discord){
 
         if(message.member.permissions.has("ADMINISTRATOR")){

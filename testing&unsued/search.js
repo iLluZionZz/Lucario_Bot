@@ -4,7 +4,7 @@ module.exports = {
   name: "search",
   aliases: [],
   cooldown: 60000,
-  category: "economy",
+  category: "Economy",
   description: {
     usage: "a-search",
     content: "Choose your search location and have a chance at some coins!",

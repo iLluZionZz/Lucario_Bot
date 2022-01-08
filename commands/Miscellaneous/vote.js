@@ -6,13 +6,14 @@ module.exports = {
         .setColor('#0375ff')
         .setTitle('Links')
         .addFields(
-            {name: 'Below are the links to our voting page!', value: 'https://top.gg/servers/579837419449221233/vote'}
+            {name: 'Below is the link to our voting page!', value: 'https://top.gg/servers/579837419449221233/vote'}
         )
         .setFooter('Our reward system is currently in progress.');
 
         message.channel.send({ embeds: [newEmbed] })
         .then(msg => {
-            msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            setTimeout(() => msg.delete(), 20000)
         })
+        .catch()
     }
 }

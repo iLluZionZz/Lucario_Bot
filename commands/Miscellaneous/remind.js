@@ -3,7 +3,7 @@ const ms = require('ms');
 module.exports = {
     name: "reminder",
     aliases: [`remind`],
-    description: "set a reminder for a certain time",
+    description: "Set a reminder for a certain time",
     async execute(client, message, args, Discord, cmd, profileData) {
             let time = args[0];
             let user = message.author

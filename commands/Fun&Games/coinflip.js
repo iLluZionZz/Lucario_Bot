@@ -1,6 +1,6 @@
 module.exports = {
     name: "coinflip",
-    description: "flips a coin!",
+    description: "Flips a coin!",
     async execute (client, message, args, Discord){
         const choices= ["heads", "tails"];
         const choice = choices[Math.floor(Math.random() * choices.length)];

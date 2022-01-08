@@ -2,6 +2,7 @@ const fs = require('fs');
 module.exports = {
   name: "shop",
   aliases: "store",
+  cooldown: 5,
   async execute(client, message, args, Discord, profileData){
     let shop_data = JSON.parse(Buffer.from(fs.readFileSync('shop.json')).toString());
     let index = (args[0] || "1");

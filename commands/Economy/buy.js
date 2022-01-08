@@ -4,6 +4,9 @@ const profileModel = require("../../models/profileSchema");
 
 module.exports = {
   name: "buy",
+  cooldown: 5,
+  description: "Buy an item from the store",
+  aliases: ["b"],
   async execute(client, message, args, Discord, cmd, profileData){
     let shop_data = JSON.parse(Buffer.from(fs.readFileSync('./shop.json')).toString());
 

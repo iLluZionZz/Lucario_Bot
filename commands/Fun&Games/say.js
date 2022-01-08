@@ -2,7 +2,7 @@ const { MessageFlags } = require("discord.js");
 
 module.exports = {
     name: "say",
-    description: "says something",
+    description: "Says whatever you give it to say",
 
     
     async execute (client, message, args, Discord){  

@@ -7,7 +7,7 @@ function randomInt(min, max) {
 module.exports = {
     name: "randomnumber",
     aliases: ['numbergenerator'],
-    description: 'creates a random number',    
+    description: 'Creates a random number',    
     execute(client, message, args, Discord){
         let min = args[0]
         let max = args[1]

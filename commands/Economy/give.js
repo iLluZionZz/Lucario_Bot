@@ -3,7 +3,7 @@ module.exports = {
   name: "give",
   aliases: [],
   permissions: ["ADMINISTRATOR"],
-  description: "give a player some coins",
+  description: "Give a player some coins",
   async execute(client, message, args, Discord, cmd, profileData) {
     if (message.member.id != "304028144761831424") return message.channel.send(`Sorry only **Ethan** can run this command 😔`);
     if (!args.length) return message.channel.send("You need to mention a player to give them coins");

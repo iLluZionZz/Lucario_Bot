@@ -7,6 +7,8 @@ for(const intent of Object.keys (Intents.FLAGS)){
 intents.add(intent);
 }
 const client = new Discord.Client({
+    restTimeOffset: 0,
+    partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
     presence: {
         status: 'online',
         afk: false,

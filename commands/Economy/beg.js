@@ -4,7 +4,7 @@ module.exports = {
   aliases: [],
   cooldown: 120,
   permissions: [],
-  description: "beg for coins",
+  description: "Beg for coins",
   async execute(client, message, args, Discord, cmd, profileData) {
     const randomNumber = Math.floor(Math.random() * 500) + 1;
     const response = await profileModel.findOneAndUpdate(

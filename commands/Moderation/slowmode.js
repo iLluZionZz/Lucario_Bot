@@ -1,6 +1,6 @@
 module.exports = {
     name: 'slowmode',
-    description: 'Sets SlowMode for a Channel',
+    description: 'Sets Slowmode for a Channel',
 async execute(client, message, args, Discord){
     const member = message.mentions.users.first();
     if(!message.member.hasPermission('ADMINISTRATOR', 'KICK_MEMBERS')){

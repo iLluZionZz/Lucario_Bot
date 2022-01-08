@@ -1,7 +1,7 @@
 const { DiscordAPIError } = require("discord.js")
 
 module.exports = {
-    name: 'ruleschannel',
+    name: 'getrules',
     description: "Puts rules in rules channel with embed",
     execute (client, message, args, Discord){
         const newEmbed = new Discord.MessageEmbed()

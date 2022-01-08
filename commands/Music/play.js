@@ -7,7 +7,7 @@ module.exports = {
     name: 'play',
     aliases: [], //We are using aliases to run the skip and stop command follow this tutorial if lost: https://www.youtube.com/watch?v=QBUJ3cdofqc
     cooldown: 0,
-    description: 'Advanced music bot',
+    description: 'Play music!',
     async execute(client, message, args, Discord, cmd){
 
         const requestedmusic = args.slice(1).join(' ');

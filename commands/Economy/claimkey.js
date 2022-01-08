@@ -2,7 +2,7 @@ fs = require('fs')
 jsonfile = require('jsonfile')
 module.exports = {
     name: 'claimkey',
-    description: "test",
+    description: "Claim a key that is given to you by an admin!",
     async execute (client, message, args, Discord){
 
         if(fs.existsSync('keys.json')) {

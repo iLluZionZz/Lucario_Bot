@@ -7,7 +7,7 @@ const {
 module.exports = {
     name: 'guildinfo',
     aliases: ['servers', 'allservers', 'showguilds'],
-    description: "a test command for random shit",
+    description: "Gets info of all servers the bot is in and displays it",
     async execute(client, message, args, Discord) {
         
 

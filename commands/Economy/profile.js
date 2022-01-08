@@ -2,7 +2,7 @@ const fs = require ('fs')
 const jsonfile = require('jsonfile'); //Everything we need for stuff to work blah blah
 module.exports = {
     name: 'profile',
-    description: "displays list of commands",
+    description: "Displays a user profile",
     execute (client, message, args, Discord, cmd, profileData){
         
         if(fs.existsSync('stats.json')) {

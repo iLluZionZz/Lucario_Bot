@@ -1,7 +1,7 @@
 module.exports = {
     name: 'lock',
-    description: "locks the channel the message was sent in",
-    aliases: ['lockdown', 'lockchannel'],
+    description: "Locks the channel the message was sent in",
+    aliases: ['lockchannel'],
     execute (client, message, args, Discord){
         const member = message.author
         if(message.member.permissions.has('ADMINISTRATOR' || 'MANAGE_CHANNELS')){

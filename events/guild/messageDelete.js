@@ -2,7 +2,6 @@ module.exports = async (Discord, client, message) => {
         if (message.author.bot) return;
         if (message.channel.type === 'dm') return;
         if (message.content.includes('@')) {
-            let color = "RED";
             let channel = "925964685851918386"
             if (channel) {
                 const embed = new Discord.MessageEmbed()

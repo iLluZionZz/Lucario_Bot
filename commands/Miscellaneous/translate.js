@@ -1,7 +1,7 @@
 const translate = require('@iamtraction/google-translate');
 module.exports = {
     name: "translate",
-    description: "translate a given text",
+    description: "Translates the given text",
     async execute (client, message, args, Discord, cmd, profileData) {
         if(message.content.includes("@everyone") || message.content.includes("@here"))  return
         if(!args[0]) return message.channel.send('Provide a message to translate!');

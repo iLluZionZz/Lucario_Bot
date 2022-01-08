@@ -1,6 +1,6 @@
 module.exports = {
     name: "showban",
-    description: "Show all banned user",
+    description: "Show all banned users",
     async execute (client, message, args, Discord){
         if(!message.member.permissions.has('BAN_MEMBERS')){
             return message.channel.send("You can't use this command.")

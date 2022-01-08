@@ -1,17 +1,16 @@
 ## Lucario_Bot Patch Notes
 
 #### Changelogs:
-
-<br />
 <p>v1.1 STABLE Release:<br />
-<p>Fixed deprecated commands from Discord.js v12. This includes:
--play.js
--profile.js
--leaderboard.js
--buy.js
--sell.js
--claim&createkey.js
--Any and ALL commands that use embeds
+<p>Fixed deprecated commands from Discord.js v12. This includes:<br />
+  <li>play.js</li>
+<li>profile.js</li>
+<li>leaderboard.js</li>
+<li>buy.js</li>
+<li>sell.js</li>
+<li>claim&createkey.js</li>
+<li>Any and ALL commands that use embeds</li>
+  
 <br />
 
 <p>Music playing is finicky. It will work, but the changes in Discord.js v13 resulted in me removing the queue system completely and creating a new command from scratch. See Known Errors for more about this.<br />
@@ -22,48 +21,52 @@
 
 #### Squashed Bugs:
 
-- Fixed all bugs where the bot would crash after sending an embeds (Looking at you Djs v12)
-- Fixed Pokedex command fatally crashing the bot upon getting timed out from the host api
-- Fixed Buy command not registering difference between pokeballs, greatballs & ultraballs
-- Fixed Buy command only taking pokeballs as the item even when a different one was requested
-- Fixed Buy command's item cost not multiplying by the amount of items bought
-- Fixed a bug where if a person left the server, it would cause the bot to crash (fetching a user it cannot find)
-- Fixed a bug where buy multiple of the same item would create a duplicate object in the inventory array
-- Fixed Profile command not showing a users roles
+<li>Fixed all bugs where the bot would crash after sending an embeds (Looking at you Djs v12)</li>
+<li>Fixed Pokedex command fatally crashing the bot upon getting timed out from the host api</li>
+<li>Fixed Buy command not registering difference between pokeballs, greatballs & ultraballs</li>
+<li>Fixed Buy command only taking pokeballs as the item even when a different one was requested</li>
+<li>Fixed Buy command's item cost not multiplying by the amount of items bought</li>
+<li>Fixed a bug where if a person left the server, it would cause the bot to crash (fetching a user it cannot find)</li>
+<li>Fixed a bug where buy multiple of the same item would create a duplicate object in the inventory array</li>
+<li>Fixed Profile command not showing a users roles</li>
+<br />
 
 #### New Additions:
 
-- New Discord voice channel games have been added. Join a voice channel using the link provided to start playing!]
-- Several utility commands related to the bot's health and condition have been added.
-- New moderation commands make it ~~easier for me to abuse my powers~~ easier for moderators to utilise.
-- Started to prepare the bot for multi-guild (server) functionality. I may make the bot public if I get good enough at this.
-- I've added a welcome message, but have not turned it on. I will do this when I can host it somewhere other than my computer. (I'm looking to host off of a raspberry pi)
+<li>New Discord voice channel games have been added. Join a voice channel using the link provided to start playing!</li>
+<li>Several utility commands related to the bot's health and condition have been added.</li>
+<li>New moderation commands make it ~~easier for me to abuse my powers~~ easier for moderators to utilise.</li>
+<li>Started to prepare the bot for multi-guild (server) functionality. I may make the bot public if I get good enough at this.</li>
+<li>I've added a welcome message, but have not turned it on. I will do this when I can host it somewhere other than my computer.</li>
+<br />
 
 Added new commands:
--Poker.js
--Fishington.js
--Betrayal.js
--Randomnumber.js
--Coinflip.js
--Youtubetogether.js
--remind.js
--idban&idunban.js
--showbans.js
--serverinfo.js
--ticket.js
--botstats.js
--uptime.js
--restart.js
--servers.js
+<li>Poker.js</li>
+<li>Fishington.js</li>
+<li>Betrayal.js</li>
+<li>Randomnumber.js</li>
+<li>Coinflip.js</li>
+<li>Youtubetogether.js</li>
+<li>remind.js</li>
+<li>idban&idunban.js</li>
+<li>showbans.js</li>
+<li>serverinfo.js</li>
+<li>ticket.js</li>
+<li>botstats.js</li>
+<li>uptime.js</li>
+<li>restart.js</li>
+<li>servers.js</li>
+<br />
 
 Revamped commands:
--RockPaperScissors.js
--Avatar.js
--lock&unlockchannels.js
--play.js
+<li>RockPaperScissors.js</li>
+<li>Avatar.js</li>
+<li>lock&unlockchannels.js</li>
+<li>play.js</li>
+<br />
 
 Removed commands:
--search.js
+<li>search.js</li>
 
 #### Known Errors/Issues
 

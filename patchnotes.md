@@ -1,4 +1,4 @@
-## Lucario_Bot Patch Notes
+## Lucario_Bot Patch Notes 
 
 #### Changelogs:
 

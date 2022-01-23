@@ -134,12 +134,18 @@ module.exports = async (Discord, client, message) => {
             serverID: message.guild.id,
             coins: 1000,
             bank: 0,
+            prestige: 0,
+            reputation: 0,
             pokeballs: 0,
             greatballs: 0,
             ultraballs: 0,
             masterballs: 0,
-            premierballs: 0,
+            premierballs: 0, 
+            oldcharm: false,
             inventory: [],
+            switchcode: '',
+            pkmngocode: '',
+            pkmnhomecode: '',
         });
         profile.save();
         }

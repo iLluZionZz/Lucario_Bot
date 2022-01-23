@@ -7,6 +7,7 @@ module.exports = {
   cooldown: 5,
   description: "Buy an item from the store",
   aliases: ["b"],
+  usage: `\` item \``,
   async execute(client, message, args, Discord, cmd, profileData){
     let shop_data = JSON.parse(Buffer.from(fs.readFileSync('./shop.json')).toString());
 

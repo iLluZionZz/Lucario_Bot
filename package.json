@@ -29,6 +29,8 @@
     "opusscript": "0.0.8",
     "pm2": "^5.1.2",
     "pokedex-promise-v2": "^3.3.2",
+    "pokemon": "^2.3.0",
+    "pokemontcgsdk": "^2.0.0",
     "pretty-ms": "^7.0.1",
     "randomstring": "^1.2.1",
     "yt-search": "^2.10.3",

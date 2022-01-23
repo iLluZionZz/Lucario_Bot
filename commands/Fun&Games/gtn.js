@@ -24,8 +24,8 @@ function guildAttemptsMap(message) {
 }
 
 module.exports = {
-    name: "guesseasy",
-    aliases: ['gtn', 'guess the number'],
+    name: "guessthenumber",
+    aliases: ['gtn', 'guesseasy'],
     category: "games",
     description: {
         usage: 'guesseasy <guesseasy number>',

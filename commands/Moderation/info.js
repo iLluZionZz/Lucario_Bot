@@ -4,9 +4,9 @@ module.exports = {
     aliases: ['whois'],
     description: 'Gets info of a user',
     async execute (client, message, args, Discord){
-        let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.member(message.author)
+        let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.get(message.author.id)
+        if(!member) return message.channel.send('Please specify someone to lookup!')
         let memberroles = member.roles.cache.sort((a, b) => b.position - a.position).map((r) => `${r}`).join(' ')
-        console.log(memberroles)
 
         const embed = new Discord.MessageEmbed()
         .setTitle(`${member.displayName}'s Information`)

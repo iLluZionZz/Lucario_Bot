@@ -1,16 +1,16 @@
 const profileModel = require("../../models/profileSchema");
 module.exports = {
-  name: "daily",
+  name: "weekly",
   aliases: [],
-  cooldown: 82800,
+  cooldown: 604800,
   permissions: [],
-  description: "Daily reward for users",
+  description: "Weekly reward for users",
   async execute(client, message, args, Discord, cmd, profileData) {
     const Emoji = client.emojiList
     const i = Emoji.indexOf('<:PokeCoin:860656640457441300>');
     const PokeCoin = Emoji[i]
     
-    const randomNumber = Math.floor(Math.random() * 2000) + 1;
+    const randomNumber = Math.floor(Math.random() * 25000) + 1;
     const response = await profileModel.findOneAndUpdate(
       {
         userID: message.author.id,
@@ -23,8 +23,8 @@ module.exports = {
     );
     const Dailyembed = new Discord.MessageEmbed()
       .setColor('GREEN')
-      .setTitle(`${message.author.username}'s Daily Reward!`)
-      .setDescription(`Here are your daily coins! **${randomNumber}** ${PokeCoin} \n You now have **${profileData.coins}** ${PokeCoin}`) 
+      .setTitle(`${message.author.username}'s Weekly Reward!`)
+      .setDescription(`Here are your weekly bonus coins! **${randomNumber}** ${PokeCoin} \n You now have **${profileData.coins}** ${PokeCoin}`) 
     return message.channel.send({ embeds: [Dailyembed] });
   },
 };

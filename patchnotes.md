@@ -3,70 +3,50 @@
 #### Changelogs:
 
 <br />
-<p>v1.1 STABLE Release:<br />
-<p>Fixed deprecated commands from Discord.js v12. This includes:
-- play.js
-- profile.js
-- leaderboard.js
-- buy.js
-- sell.js
-- claim&createkey.js
-- Any and ALL commands that use embeds
+<p>v1.1.5 STABLE Release:<br />
+<p>Created new Commands, Models & Tweaked old ones
+-profile.js
+-ready.js
+-tcg.js
+-switchcode.js
+-pkmnhomecode.js
+-pkmngocode.js
+-safari.js
+-prestige.js
 <br />
 
-<p>Music playing is finicky. It will work, but the changes in Discord.js v13 resulted in me removing the queue system completely and creating a new command from scratch. See Known Errors for more about this.<br />
-<p>I've added a new Pokemon database in preperation for a new minigame involving catching Pokemon. You can see sneakpeeks in the github repo.<br />
-<p>I added several moderation tools for ease of use & to help keep the bot online.<br />
-<p>I've moved ALL Discord events to their respective folders, messagecreate is getting a bit large. Regardless, this should cut down on Bot restarting times.<br />
+<p>Added new economy commands and revamped all early text based commands to be pretty embeds instead.<br />
+<p>Added a new 
 <p>A few commands were removed. I won't be covering them all here. Most of them were causing bugs I couldn't fix myself, and some may return in the future once documentation gets a bit more descriptive then it current is.<br />
 
 #### Squashed Bugs:
-
-- Fixed all bugs where the bot would crash after sending an embeds (Looking at you Djs v12)
-- Fixed Pokedex command fatally crashing the bot upon getting timed out from the host api
-- Fixed Buy command not registering difference between pokeballs, greatballs & ultraballs
-- Fixed Buy command only taking pokeballs as the item even when a different one was requested
-- Fixed Buy command's item cost not multiplying by the amount of items bought
-- Fixed a bug where if a person left the server, it would cause the bot to crash (fetching a user it cannot find)
-- Fixed a bug where buy multiple of the same item would create a duplicate object in the inventory array
-- Fixed Profile command not showing a users roles
+-Any commands that called for emojis could possibly crash the bot if they weren't already cached, so we've rectified that by preloading the emojis as the bot starts.
 
 #### New Additions:
 
-- New Discord voice channel games have been added. Join a voice channel using the link provided to start playing!]
-- Several utility commands related to the bot's health and condition have been added.
-- New moderation commands make it ~~easier for me to abuse my powers~~ easier for moderators to utilise.
-- Started to prepare the bot for multi-guild (server) functionality. I may make the bot public if I get good enough at this.
-- I've added a welcome message, but have not turned it on. I will do this when I can host it somewhere other than my computer. (I'm looking to host off of a raspberry pi)
+-The Profile command has been updated to include prestige levels, reputation, Pokemon connection codes & more. Trying to expand the economy profiles of everyone as wide as I can to bring together the community and other aspects of the bot.
+-Added a Trading Card lookup command to find prices on cards and display them within embeds
+-Added all of generation 8 Pokemon names to pokemon.txt
+-Added usage keys/hints to important or difficult to understand commands
+-Added ALL pokemon sprites to a new folder called pokemon-media; used for the new Pokemon hunting commands. I won't be uploading it to github due to its sensitive copyrighted content from the Pokemon company. 
 
 Added new commands:
--Poker.js
--Fishington.js
--Betrayal.js
--Randomnumber.js
--Coinflip.js
--Youtubetogether.js
--remind.js
--idban&idunban.js
--showbans.js
--serverinfo.js
--ticket.js
--botstats.js
--uptime.js
--restart.js
--servers.js
+-Tcg.js
+-Emoji.js
+-prestige.js
+-switchcode.js
+-pkmnhomecode.js
+-pkmngocode.js
+-safari.js
 
 Revamped commands:
--RockPaperScissors.js
--Avatar.js
--lock&unlockchannels.js
--play.js
+-Profile.js
+-Ready.js
 
 Removed commands:
--search.js
+guildDelete event
+MessageDelete event
 
 #### Known Errors/Issues
 
-<p>2 issues have been noticed upon this release:<br />
-<p>YDTL-CORE has bitrate limitations with youtube video downloading and crashes mid video playing. This can sometimes result in fatal crashes- a subsitute will be found.<br />
-<p>Betrayal.io tends to cause a user to lag out of the activity in the voice channel, but remain connected. I don't know the cause since it doesn't seem to be bot related.<br />
+<p>An actual stable release, holy crap!<br />

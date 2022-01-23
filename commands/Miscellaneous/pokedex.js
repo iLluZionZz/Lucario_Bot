@@ -29,9 +29,14 @@ module.exports = {
                 const stat4value = data.stats[3].base_stat;
                 const stat5value = data.stats[4].base_stat;
                 const stat6value = data.stats[5].base_stat;
-        
-                const type = data.types[0].type.name;
-                const type2 = data.types[1].type.name;
+                
+                if(data.types.length = 1){
+                    var type = data.types[0].type.name;
+                    var type2 = ''
+                } else {
+                    var type = data.types[0].type.name;
+                    var type2 = data.types[1].type.name;
+                }
         
                 const ability = data.abilities[0].ability.name;
                 const formatName = (name) => name.charAt(0).toUpperCase() + name.slice(1);
@@ -41,7 +46,7 @@ module.exports = {
                 .setAuthor('Pokedex', 'https://i.imgur.com/RWFriKR.png')
                 .setThumbnail(data.sprites.front_default)
                 .setTitle(`**No. ${data.id}** ${formatName(name)}`) 
-                .setDescription(`**Types** \n ${type.charAt(0).toUpperCase() + type.slice(1)} , ${type2.charAt(0).toUpperCase() + type2.slice(1)}`)
+                .setDescription(`**Types** \n ${type.charAt(0).toUpperCase() + type.slice(1)}  ${type2.charAt(0).toUpperCase() + type2.slice(1)}`)
                 .addFields(
                     { name: 'Ability', value: `${formatName(ability)}`, inline: true},
                     { name: '\u200B', value: '\u200B', inline: true },

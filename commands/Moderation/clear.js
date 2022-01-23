@@ -3,7 +3,7 @@ module.exports = {
     aliases: ['delete', 'purge'],
     description: "Clears messages",
     async execute (client, message, args){
-        if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply(`You can't use this command.`);
+        if (!message.member.permissions.has("MANAGE_MESSAGES")) return message.reply(`You can't use this command.`);
         if(!args[0]) return message.reply("Enter the amount of messages that you would like to clear.");
         if(isNaN(args[0])) return message.reply("Enter a number.");
 

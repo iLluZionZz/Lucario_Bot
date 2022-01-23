@@ -5,8 +5,8 @@ const {
 } = require('discord.js')
 
 module.exports = {
-    name: 'guildinfo',
-    aliases: ['servers', 'allservers', 'showguilds'],
+    name: 'servers',
+    aliases: ['allservers', 'showguilds', 'guildinfo'],
     description: "Gets info of all servers the bot is in and displays it",
     async execute(client, message, args, Discord) {
         

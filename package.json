@@ -1,6 +1,6 @@
 {
   "name": "lucariobot",
-  "version": "1.0.0",
+  "version": "1.1.5",
   "description": "",
   "main": "main.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "@discordjs/voice": "^0.7.5",
     "@iamtraction/google-translate": "^1.1.2",
     "axios": "^0.24.0",
-    "discord.js": "^13.3.1",
+    "discord.js": "^13.6.0",
     "discord.js-commando": "^0.12.3",
     "dotenv": "^10.0.0",
     "ffmpeg-static": "^4.4.0",
@@ -25,7 +25,6 @@
     "lyrics-finder": "^21.7.0",
     "moment": "^2.29.1",
     "mongoose": "^5.12.15",
-    "node-fetch": "^2.6.6",
     "opusscript": "0.0.8",
     "pm2": "^5.1.2",
     "pokedex-promise-v2": "^3.3.2",

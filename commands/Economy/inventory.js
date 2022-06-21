@@ -21,6 +21,7 @@ module.exports = {
 
           let temp_items = data.inventory.map(item => item.name);
           let temp_items_amount = data.inventory.map(item => item.amount)
+          let temp_items_emoji = data.inventory.map(item => item.emoji)
           console.log(temp_items_amount)
           console.log(temp_items)
           let items = [];
@@ -28,9 +29,11 @@ module.exports = {
           for(i = 0; i < data.inventory.length; i++){
             var itemName = temp_items[i]
             var itemamount = temp_items_amount[i]
+            var itemEmoji = temp_items_emoji[i]
             items.push({
               name: itemName,
-              amount: itemamount
+              amount: itemamount,
+              emoji: itemEmoji
             });
           };
 
@@ -41,7 +44,7 @@ module.exports = {
           let ultraball = client.emojis.cache.get("922906821797224479")
           let masterballemoji = client.emojis.cache.get("922906847474761748")
 
-          items = items.map(item => `**${item.name}** x\`${item.amount}\``)
+          items = items.map(item => `${item.emoji} **${item.name}** x\`${item.amount}\``)
   
           const inventory = new Discord.MessageEmbed()
           .setColor('RANDOM')
@@ -52,6 +55,8 @@ module.exports = {
             { name: 'Pokeballs', value: `${pokeball} ${data.pokeballs}x Pokeballs \n ${greatball} ${data.greatballs}x Greatballs \n ${ultraball} ${data.ultraballs}x Ultraballs \n ${masterballemoji} ${data.masterballs}x Masterballs`, inline: true},
             { name: 'Items', value: `${items.join('\n\t')}`}
           )
+          .setTimestamp()
+          .setFooter(message.guild.name, message.guild.iconURL())
       
           await message.channel.send({ embeds: [inventory] });
 

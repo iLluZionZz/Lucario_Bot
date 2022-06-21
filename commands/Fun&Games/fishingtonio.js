@@ -10,6 +10,7 @@ const fetch = require('node-fetch')
 module.exports = {
     name: 'fishingtonio',
     description: "Creates a Discord Game in VC - Fishington.io",
+    cooldown: 20,
     aliases: ['fishing', 'fishington'],
     execute(client, message, args) {
 

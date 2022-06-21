@@ -10,7 +10,7 @@ module.exports = {
         if(profileData.switchcode === ''){
             return message.channel.send('Please enter a Nintendo Switch Code to add to your profile.')
         } else {
-            return message.channel.send(`Your switch code is ${profileData.switchcode}`)
+            return message.channel.send(`Your switch code is \`${profileData.switchcode}\``)
         };
     };
     let nswitchcode = /^(?:SW)?[- ]?([0-9]{4})[- ]?([0-9]{4})[- ]?([0-9]{4})/.exec(args);

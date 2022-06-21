@@ -10,7 +10,7 @@ module.exports = {
         if(profileData.pkmnhomecode === ''){
             return message.channel.send('Please enter a Pokemon Home Friend Code to add to your profile.')
         } else {
-            return message.chanel.send(`Your Pokemon Home Friend code is ${profileData.pkmnhomecode}`)
+            return message.channel.send(`Your Pokemon Home Friend code is \`${profileData.pkmnhomecode}\``)
         };
     };
     let homecode = /[A-Z]{12}/.exec(args);

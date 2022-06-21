@@ -60,7 +60,7 @@ module.exports = {
             .setAuthor(`You encountered a wild ${reformatted}!`, 'https://archives.bulbagarden.net/media/upload/7/7c/PE_Grass.png')
             .setDescription(`${pokemonrarity}`)
             .setTimestamp() 
-            .setFooter('Lucario Bot Pokedex');
+            .setFooter({ text: 'Lucario Bot Pokedex' });
             
             const timeoutembed = new Discord.MessageEmbed()
             .setColor('#FEEF22')
@@ -71,7 +71,7 @@ module.exports = {
                 { name: '\u200B', value: '\u200B', inline: true }
             )
             .setTimestamp() 
-            .setFooter('Blah Blah');
+            .setFooter({ text:'Blah Blah' });
 
             let filter = m => m.author.id === message.author.id
             message.channel.send({ embeds: [exampleEmbed] }).then(() => {

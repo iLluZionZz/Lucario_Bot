@@ -129,7 +129,7 @@ module.exports = {
               },
               $push: {
                 inventory: {
-                  $each: [ {name: item.name, amount: amountbought, itemqueryindex: item.QueryIndex} ],
+                  $each: [ {name: item.name, amount: amountbought, emoji: item.emoji, itemqueryindex: item.QueryIndex} ],
                   $sort: {itemqueryindex: 1},
                 }
               }

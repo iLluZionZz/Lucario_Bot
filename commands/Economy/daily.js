@@ -24,7 +24,9 @@ module.exports = {
     const Dailyembed = new Discord.MessageEmbed()
       .setColor('GREEN')
       .setTitle(`${message.author.username}'s Daily Reward!`)
-      .setDescription(`Here are your daily coins! **${randomNumber}** ${PokeCoin} \n You now have **${profileData.coins}** ${PokeCoin}`) 
+      .setDescription(`Here are your daily coins! **${randomNumber}** ${PokeCoin} \n You now have **${profileData.coins}** ${PokeCoin}`)
+      .setTimestamp()
+      .setFooter(message.guild.name, message.guild.iconURL())
     return message.channel.send({ embeds: [Dailyembed] });
   },
 };

@@ -57,7 +57,6 @@ module.exports = {
                 q: `name:${pokemonname}${placeholderforsubtype}${subtype}`, orderBy: '-set.releaseDate', pageSize: 10, page: 1
             })
             .then( async result => {
-                console.log(result)
                 const AmountofCardsFound = parseInt(result.data.length);
                 const backId = 'back'
                 const forwardId = 'forward'
@@ -86,7 +85,6 @@ module.exports = {
                  */
                 const generateEmbed = async start => {
                     const current = result.data.slice(start, start + 1)
-                    console.log(current)
                     if(current[0].legalities.standard == 'Legal'){
                         var verify1emoji = '✅'
                         var standardlegality = current[0].legalities.standard
@@ -101,28 +99,43 @@ module.exports = {
                         var verify2emoji = '❌'
                         var expandedlegality = 'Banned'
                     }
-                    if(!current[0].tcgplayer.prices.normal){
-                        if(!current[0].tcgplayer.prices.holofoil){
-                            if(!current[0].tcgplayer.prices.reverseHolofoil){
-                                var tcgprice = 'Unknown'
+                    try {
+                        if(!current[0].tcgplayer.prices.normal){
+                            if(!current[0].tcgplayer.prices.holofoil){
+                                if(!current[0].tcgplayer.prices.reverseHolofoil){
+                                    var tcgprice = 'Unknown'
+                                } else {
+                                    const tcgpriceplaceholder3 = current[0].tcgplayer.prices.reverseHolofoil.market
+                                    const tcgpriceplaceholder33 = current[0].tcgplayer.prices.reverseHolofoil.low
+                                    var tcgprice = tcgpriceplaceholder3
+                                    var tcgpricelow = tcgpriceplaceholder33.toString()
+                                }
                             } else {
-                                const tcgpriceplaceholder3 = current[0].tcgplayer.prices.reverseHolofoil.market
-                                const tcgpriceplaceholder33 = current[0].tcgplayer.prices.reverseHolofoil.low
-                                var tcgprice = tcgpriceplaceholder3
-                                var tcgpricelow =tcgpriceplaceholder33.toString()
+                                const tcgpriceplaceholder1 = current[0].tcgplayer.prices.holofoil.market
+                                const tcgpriceplaceholder11 = current[0].tcgplayer.prices.holofoil.low
+                                var tcgprice = tcgpriceplaceholder1.toString()
+                                var tcgpricelow = tcgpriceplaceholder11.toString()
                             }
                         } else {
-                            const tcgpriceplaceholder1 = current[0].tcgplayer.prices.holofoil.market
-                            const tcgpriceplaceholder11 = current[0].tcgplayer.prices.holofoil.low
-                            var tcgprice = tcgpriceplaceholder1.toString()
-                            var tcgpricelow =tcgpriceplaceholder11.toString()
+                            const tcgpriceplaceholder2 = current[0].tcgplayer.prices.normal.market
+                            const tcgpriceplaceholder22 = current[0].tcgplayer.prices.normal.low
+                            var tcgprice = tcgpriceplaceholder2.toString()
+                            var tcgpricelow = tcgpriceplaceholder22.toString()
                         }
-                    } else {
-                        const tcgpriceplaceholder2 = current[0].tcgplayer.prices.normal.market
-                        const tcgpriceplaceholder22 = current[0].tcgplayer.prices.normal.low
-                        var tcgprice = tcgpriceplaceholder2.toString()
-                        var tcgpricelow =tcgpriceplaceholder22.toString()
+                    } catch (err) {
+                        var tcgprice = 'Unknown'
+                        var tcgpricelow = 'Unknown'
+                        console.error('TCG Command Error - No TCGplayer Pricing: ' + err )
+                    };
+                    
+                    try {
+                        current[0].tcgplayer.url
+                        var tcgplayerlink = current[0].tcgplayer.url
+                    } catch (err) {
+                        console.error('TCG Command Error - No TCGplayer link: ' + err )
+                        var tcgplayerlink = 'https://shop.tcgplayer.com/pokemon'
                     }
+                    
                     return new MessageEmbed({
                         title: `${current[0].name} #${current[0].number}/${current[0].set.total}`,
                         description: `Showing card result ${start + 1} out of ${AmountofCardsFound}`,
@@ -134,7 +147,7 @@ module.exports = {
                             },
                             {
                                 name: `TCGPlayer Price:`,
-                                value: `Market Price: [$${tcgprice} USD](${current[0].tcgplayer.url}) \n  Lowest Price: [$${tcgpricelow} USD](${current[0].tcgplayer.url})`,
+                                value: `Market Price: [$${tcgprice} USD](${tcgplayerlink}) \n  Lowest Price: [$${tcgpricelow} USD](${tcgplayerlink})`,
                                 inline: true,
                             },
                             {

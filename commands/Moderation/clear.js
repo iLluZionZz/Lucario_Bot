@@ -9,15 +9,10 @@ module.exports = {
 
         if(args[0] > 99) return message.reply("99 messages is the highest amount of messages you can clear.");
         if(args[0] < 1) return message.reply("1 messages is the least amount of messages you can clear.");
-
-         // helper so you can await a setTimeout
-         function sleep(seconds) {
-            return new Promise(r => setTimeout(r, seconds * 1000))
-          }
           
           const messages = await message.channel.messages.fetch({limit: ++args[0]})
-          message.channel.send('Deleting '+args[0]+' messages in 5 seconds...')
-          await sleep(5) // see above
-          message.channel.bulkDelete(messages)
+          message.channel.send('Deleting '+args[0]+' messages in 5 seconds...').then(msg => {
+            setTimeout(() => msg.channel.bulkDelete(messages), 5000)
+        })
         }
 }

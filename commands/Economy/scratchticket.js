@@ -13,7 +13,7 @@ module.exports = {
             .setColor('RED')
             .setTimestamp()
             .setFooter(message.guild.name, message.guild.iconURL())
-            .setDescription(`Invalid command usage!\nBet some money!\n\n\`s!scratch <amount>\``)
+            .setDescription(`Invalid command usage!\nBet some money!\n\n\`${process.env.PREFIX}scratch <amount>\``)
             
             // The money they would bet
         let moneyEarned = parseInt(args[0]);

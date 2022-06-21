@@ -1,0 +1,28 @@
+{
+    "keyitems": [
+        {
+            "name": "Secret Medicine",
+            "QueryIndex": 1
+            },
+            {
+            "name": "Galactic Key",
+            "QueryIndex": 2
+            },
+            {
+            "name": "Acro Bike",
+            "QueryIndex": 3
+            },
+            {
+            "name": "Explorer Kit",
+            "QueryIndex": 4
+            },
+            {
+            "name": "Apricorn Box",
+            "QueryIndex": 5
+            },
+            {
+            "name": "Coin Case",
+            "QueryIndex": 6
+            }
+    ]
+}

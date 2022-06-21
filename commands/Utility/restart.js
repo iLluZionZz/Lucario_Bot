@@ -14,27 +14,18 @@ module.exports = {
             })
         }
         
-        require("child_process").exec("pm2 restart main.js")
+        await client.destroy()
+        await client.login(process.env.DISCORD_TOKEN)
         
-        console.log("Well Restarted!!")
-        return message.channel.send({
+        console.log("Bot Restarted!!")
+        await message.channel.send({
             embeds: [
                 new Discord.MessageEmbed()
                   .setTitle(" Restarted the **BOT**")
                   .setDescription("Please check me to see if all commands are working or not!!")
                   .setColor("BLURPLE")
             ]
-        })
-        
-        console.log("Well Restarted!!")
-        return message.channel.send({
-            embeds: [
-                new Discord.MessageEmbed()
-                  .setTitle(" Restarted the **BOT**")
-                  .setDescription("Please check me to see if all commands are working or not!!")
-                  .setColor("BLURPLE")
-            ]
-        })
+        });
     }
 }
 

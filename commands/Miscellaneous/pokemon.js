@@ -4,7 +4,7 @@ module.exports = {
     description: "Displays a list of Pokemon related content.",
     execute (client, message, args, Discord){
         const TCG = client.emojis.cache.get("858193859309862912")
-        const Pokeball = client.emojis.cache.get("827706044024356875")
+        const Pokeball = client.emojis.cache.get("922906761340534826")
         const Unite = client.emojis.cache.get("858193465048039425")
         const Sword = client.emojis.cache.get("858193729592360970")
         const Shield = client.emojis.cache.get("858193738782474265")
@@ -16,7 +16,7 @@ module.exports = {
         const newEmbed = new Discord.MessageEmbed()
         .setColor('#0375ff')
         .setTitle('Pokemon Links!')
-        .setDescription(`Did you mean " ${process.env.PREFIX}pokedex "? Use this command instead to lookup Pokemon! \n This bot & server is not affiliated with the Pokemon company or Serebii.`)
+        .setDescription(`Did you mean " \`${process.env.PREFIX}pokedex\` "? Use this command instead to lookup Pokemon! \n This bot & server is not affiliated with the Pokemon company or Serebii.`)
         .addFields(
             {name: `All Things Pokemon ${Pokeball}`, value: `[The Pokemon Company](https://www.pokemon.com/us/) \n [Serebii](https://www.serebii.net/)`, inline: true},
             {name: `Pokemon TCG ${TCG}`, value: `[The Pokemon Company](https://www.pokemon.com/us/pokemon-tcg/) \n [Serebii Card Dex](https://www.serebii.net/card/english.shtml)`, inline: true},

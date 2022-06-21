@@ -28,6 +28,7 @@
           "cost": 10000,
           "OnlyBuyOne": false,
           "CanBeSold": true,
+          "emoji": "<:redcard:922999500317007944>",
           "QueryIndex": 4
         },
         {
@@ -35,6 +36,7 @@
           "cost": 15000,
           "OnlyBuyOne": false,
           "CanBeSold": true,
+          "emoji": "<:eviolite:922999566884802561>",
           "QueryIndex": 5
         },
         {
@@ -42,72 +44,100 @@
           "cost": 150000,
           "OnlyBuyOne": true,
           "CanBeSold": false,
+          "emoji": "<:Dream_Amulet_Coin_Sprite:858192440786944020>",
           "QueryIndex": 6
+        },
+        {
+          "name": "Rare Candy",
+          "cost": 150000,
+          "OnlyBuyOne": true,
+          "CanBeSold": false,
+          "emoji": "<:Dream_Rare_Candy_Sprite:858192390757416970>",
+          "QueryIndex": 7
         }
       ]
     },
     "2": {
       "items": [
         {
-          "name": "Shiny Charm",
-          "cost": 150000,
-          "OnlyBuyOne": true,
+          "name": "Claw Fossil",
+          "emoji": "<:clawfossil:934937792428003429>",
+          "cost": 5000,
           "CanBeSold": false,
-          "QueryIndex": 10
+          "hidden": true,
+          "QueryIndex": 30
         },
         {
-          "name": "Secret Medicine",
+          "name": "Dome Fossil",
+          "emoji": "<:domefossil:934937754461147186>",
+          "cost": 5000,
+          "CanBeSold": false,
+          "hidden": true,
+          "QueryIndex": 31
+        },
+        {
+          "name": "Skull Fossil",
+          "emoji": "<:skullfossil:934937916646502410>",
+          "cost": 5000,
+          "CanBeSold": false,
+          "hidden": true,
+          "QueryIndex": 32
+        },
+        {
+          "name": "Root Fossil",
+          "emoji": "<:rootfossil:934937934350663711>",
+          "cost": 5000,
+          "CanBeSold": false,
+          "hidden": true,
+          "QueryIndex": 33
+        },
+        {
+          "name": "Helix Fossil",
+          "emoji": "<:helixfossil:934937778553253889>",
+          "cost": 5000,
+          "CanBeSold": false,
+          "hidden": true,
+          "QueryIndex": 34
+        },
+        {
+          "name": "Blue Sphere",
+          "emoji": "<:bluesphere:934937848627478598>",
           "cost": 1,
-          "OnlyBuyOne": true,
           "CanBeSold": false,
-          "keyitem": true,
           "hidden": true,
-          "QueryIndex": 11
+          "QueryIndex": 35
         },
         {
-          "name": "Galactic Key",
+          "name": "Green Sphere",
+          "emoji": "<:greensphere:934937857964011540>",
           "cost": 1,
-          "OnlyBuyOne": true,
           "CanBeSold": false,
-          "keyitem": true,
           "hidden": true,
-          "QueryIndex": 12
+          "QueryIndex": 36
         },
         {
-          "name": "Acro Bike",
+          "name": "Red Sphere",
+          "emoji": "<:redsphere:934937890289504336>",
           "cost": 1,
-          "OnlyBuyOne": true,
           "CanBeSold": false,
-          "keyitem": true,
           "hidden": true,
-          "QueryIndex": 13
+          "QueryIndex": 37
         },
         {
-          "name": "Explorer Kit",
-          "cost": 1000000000,
-          "OnlyBuyOne": true,
-          "CanBeSold": true,
-          "keyitem": true,
+          "name": "Prism Sphere",
+          "emoji": "<:prismsphere:934937830629716060>",
+          "cost": 1,
+          "CanBeSold": false,
           "hidden": true,
-          "QueryIndex": 14
+          "QueryIndex": 38
         },
         {
-          "name": "Apricorn Box",
-          "cost": 1000000000,
-          "OnlyBuyOne": true,
+          "name": "Pale Sphere",
+          "emoji": "<:palesphere:934937877488467978>",
+          "cost": 1,
           "CanBeSold": true,
-          "keyitem": true,
           "hidden": true,
-          "QueryIndex": 15
-        },
-        {
-          "name": "Coin Case",
-          "cost": 1000000000,
-          "OnlyBuyOne": true,
-          "CanBeSold": true,
-          "keyitem": true,
-          "hidden": true,
-          "QueryIndex": 16
+          "QueryIndex": 39
         }
       ]
     }

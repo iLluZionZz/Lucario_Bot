@@ -13,8 +13,10 @@ module.exports = {
   usage: "<emoji>",
   async execute (client, message, args) {
 
-    if (!message.member.permissions.has("ADMINISTRATOR")) return message.reply("**You Don't Have The Permission To ban A User!**");
-    const regex = args[0].replace(/^<a?:\w+:(\d+)>$/, "$1")
+    if (!message.member.permissions.has("ADMINISTRATOR")) return message.reply("**You dont have permission to use this command.**");
+    if(!args[0]) return message.reply("Please include an emoji to lookup.");
+    const args1 = args[0]
+    const regex = args1.replace(/^<a?:\w+:(\d+)>$/, "$1")
     const emoji = message.guild.emojis.cache.find((emoji) => emoji.name === args.join(" ") || emoji.id === regex)
     if (!emoji) return message.reply("That emoji is not in the server!")
 

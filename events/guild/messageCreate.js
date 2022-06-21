@@ -71,17 +71,17 @@ module.exports = async (Discord, client, message) => {
             .catch((err)=>{
                 console.log(err)});
         }
+        console.log(message.author.username + ' now has ' + userStats.xp + ' xp. | ' + userStats.xpToNextLevel + ' xp needed for next level. ');
         } 
     
         jsonfile.writeFileSync('stats.json', stats);
         jsonfile.writeFileSync('statsbackup.json', stats);
-    
-        console.log(message.author.username + ' now has ' + userStats.xp);
-        console.log(userStats.xpToNextLevel + ' xp needed for next level. ')
 
+    //Prefix & Command Handling
 
     const prefix = process.env.PREFIX;
     if(!message.content.startsWith(prefix) || message.author.bot) return;
+    if(message.length >= 1) return;
 
     const args = message.content.slice(prefix.length).split(/ +/);
     const cmd = args.shift().toLowerCase();
@@ -141,8 +141,8 @@ module.exports = async (Discord, client, message) => {
             ultraballs: 0,
             masterballs: 0,
             premierballs: 0, 
-            oldcharm: false,
             inventory: [],
+            keyitems: [],
             switchcode: '',
             pkmngocode: '',
             pkmnhomecode: '',

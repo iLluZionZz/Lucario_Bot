@@ -1,5 +1,6 @@
 module.exports = {
     name: "showban",
+    aliases: ['showbans', 'allbanned', 'serverbanned'],
     description: "Show all banned users",
     async execute (client, message, args, Discord){
         if(!message.member.permissions.has('BAN_MEMBERS')){

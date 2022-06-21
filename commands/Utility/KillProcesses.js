@@ -1,7 +1,6 @@
-const { MessageActionRow, MessageButton } = require('discord.js');
 module.exports = {
     name: 'killall',
-    description: "Kills all bot processes",
+    description: "Terminates bot's connection to Discord",
     /**
      * 
      * @param {*} client 
@@ -25,24 +24,24 @@ module.exports = {
 
         const Titleembed = new Discord.MessageEmbed()
         .setTitle("WARNING")
-        .setDescription("Are you sure you want to do this? This will kill all instance of the bot and you will have to manually wake me up.")
+        .setDescription("Are you sure you want to do this? This will kill all instances of the bot and you will have to manually wake me up.")
         .setColor("#000000");
         const Confirmembed = new Discord.MessageEmbed()
         .setTitle("Done!")
-        .setDescription("You selected yes")
+        .setDescription("Lucario Bot is now going to sleep.. 💤")
         .setColor("#000000");
         const Denyembed = new Discord.MessageEmbed()
-        .setTitle("Done!")
-        .setDescription("You selected no")
+        .setTitle("Whew!")
+        .setDescription("That was a close one.")
         .setColor("#000000");
 
-        const row = new MessageActionRow()
+        const row = new Discord.MessageActionRow()
         .addComponents(
-            new MessageButton()
+            new Discord.MessageButton()
                 .setCustomId('yes')
                 .setLabel('Yes')
                 .setStyle('SUCCESS'),
-            new MessageButton()
+            new Discord.MessageButton()
                 .setCustomId('no')
                 .setLabel('No')
                 .setStyle('DANGER'),    
@@ -59,11 +58,20 @@ module.exports = {
         collector.on('collect', async interaction => {
             if(interaction.customId === 'yes'){
                 var embedplaceholder = Confirmembed
-                require("child_process").exec("pm2 stop main.js")
+                //require("child_process").exec("pm2 stop main.js") //- This doesnt work anymore lol
+                try {
+                    client.destroy();
+                } catch (err) {
+                    console.clear
+                    console.warn('\n \n FATAL ERROR DURING WEBSOCKET CLOSE: LUCARIOBOT STILL RUNNING \n \n')
+                    return message.channel.send('LucarioBot could not be terminated.')
+                }
             } else { // JUST DO ELSE IF OTHERWISE
                 var embedplaceholder = Denyembed
             }
-            await interaction.update({ embeds: [embedplaceholder] });
+            row.components[0].setDisabled(true)
+            row.components[1].setDisabled(true)
+            await interaction.update({ embeds: [embedplaceholder], components: [row] });
         })
         
     }

@@ -8,7 +8,7 @@ intents.add(intent);
 }
 const client = new Discord.Client({
     restTimeOffset: 0,
-    partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
+    partials: ['MESSAGE', 'CHANNEL', 'REACTION', 'USER'],
     presence: {
         status: 'online',
         afk: false,
@@ -41,8 +41,6 @@ mongoose.connect(process.env.MONGODB_SRV, {
 }).catch((err) =>{
     console.log(err)
 });
-
-
 
 client.on("warn", console.log) //Anything Wrong with the bot
 client.on("debug", console.log)

@@ -2,8 +2,8 @@ module.exports = {
     name: 'kick',
     description: "kicks the specified user",
     execute (client, message, args){
-        const member = message.mentions.users.first();
-        if(message.member.hasPermission('ADMINISTRATOR', 'KICK_MEMBERS')){
+        const member = message.mentions.users.first()
+        if(message.member.permissions.has('ADMINISTRATOR', 'KICK_MEMBERS')){
         if(member){
             const memberTarget = message.guild.members.cache.get(member.id);
             let reason = args.slice(1).join(' ');

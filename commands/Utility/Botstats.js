@@ -1,4 +1,4 @@
-const ms = require('pretty-ms')
+
 module.exports = {
     name: 'lucariobotstats',
     aliases: ['botstats'],
@@ -21,11 +21,11 @@ module.exports = {
 
         const statembed = new Discord.MessageEmbed()
         .setColor('BLUE')
-        .setTitle(`**Stats of ${client.user.username}**`)
+        .setTitle(`**${client.user.username} Stats**`)
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
         .addField("**Guild/Server Info**", `Servers: \`${client.guilds.cache.size}\`\n Channels: \`${client.channels.cache.size}\` \n Users: \`${client.guilds.cache.filter((e) => e.memberCount).reduce((a, g) => a + g.memberCount, 0)}\``)
         .addField("**Cached Data:**", `Users: \`${client.users.cache.size}\`\n Emojis: \`${client.emojis.cache.size}\``)
-        .addField("**Performance**", `Ping: \`${Math.round(client.ws.ping)}ms\` \n Uptime: \`${formattime}\` ${variable}`)
+        .addField("**Performance**", `Ping: \`${(client.ws.ping.toFixed(2))}ms\` \n Uptime: \`${formattime.toFixed(2)}\` ${variable}`)
         .addField("**Memory:**", `\`${(process.memoryUsage().rss / 1024 / 1024).toFixed(2)}\` MB RSS \n \`${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}\` MB Heap`, true)
         .addField("**Node environment:**", ` \`${process.version} on ${process.platform} ${process.arch}\``)
         .addField("**Version**", ` \`1.0\``)
@@ -34,5 +34,17 @@ module.exports = {
 
         message.channel.send({ embeds: [statembed] })
 
+        console.log(`\nThis was requested by a user on discord: ${message.author.tag}`)
+        console.table({ 
+            'Bot User:' : `${client.user.tag}` ,
+            'Guild(s):' : `${client.guilds.cache.size} Servers` ,
+            'Watching:' : `${client.guilds.cache.reduce((a, b) => a + b?.memberCount, 0)} Members` ,
+            'Prefix:' : `${process.env.PREFIX}` ,
+            'Commands:' : `${client.commands.size}` ,
+            'Discord.js:' : `v${Discord.version}` ,
+            'Node.js:' : `${process.version}` ,
+            'Platform:' : `${process.platform} ${process.arch}` ,
+            'Memory:' : `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB / ${(process.memoryUsage().rss / 1024 / 1024).toFixed(2)} MB`
+          });
     }
 }

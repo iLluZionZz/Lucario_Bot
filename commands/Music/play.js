@@ -9,8 +9,13 @@ module.exports = {
     cooldown: 0,
     description: 'Play music!',
     async execute(client, message, args, Discord, cmd){
+        
+        const requestedmusic = args
+        if(ytdl.validateURL(requestedmusic) === true){
+            console.log('Shit working')
+        }
 
-        const requestedmusic = args.slice(1).join(' ');
+        console.log(requestedmusic)
 
         //Checking for the voicechannel and permissions (you can add more permissions if you like).
         if(!requestedmusic) return message.channel.send('You need to give me a link or Song name!')
@@ -57,7 +62,7 @@ module.exports = {
         const resource = createAudioResource(stream, {
             inlineVolume: true
         }); //get the Audio
-        resource.volume.setVolume(0.2); //set the volume
+        resource.volume.setVolume(0.4); //set the volume
         const player = createAudioPlayer(); //Create a player
         VoiceConnection.subscribe(player);
         player.play(resource); //Play the audio resource

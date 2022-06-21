@@ -4,12 +4,11 @@ const jsonfile = require('jsonfile'); //Everything we need for stuff to work bla
 module.exports = {
     name: 'profile',
     description: "Displays a user profile",
+    cooldown: 10,
     async execute (client, message, args, Discord, cmd){
         //let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.get(message.author.id) - DISCORD GUILDMEMBER, We need Userid.
         let user = message.mentions.users.first() || message.author
         const userid = user.id
-        console.log(user)
-        console.log(userid)
         if(!user) return message.channel.send('Something went wrong. Please report this as a bug or ping Ethan to find out what happened.')
         
         if(fs.existsSync('stats.json')) {
@@ -23,20 +22,22 @@ module.exports = {
         if(profileData.switchcode == ''){
             var switchcode = ''
         } else {
-            var switchcode = `Switch: ${profileData.switchcode}`
+            var switchcode = `Switch: \`${profileData.switchcode}\``
         };
         if(profileData.pkmngocode == ''){
             var pkmngocode = ''
         } else {
-            var pkmngocode = `Pokemon Go: ${profileData.pkmngocode}`
+            var pkmngocode = `Pokemon Go: \`${profileData.pkmngocode}\``
         };
         if(profileData.pkmnhomecode == ''){
             var pkmnhomecode = ''
         } else {
-            var pkmnhomecode = `Pokemon Home: ${profileData.pkmnhomecode}`
+            var pkmnhomecode = `Pokemon Home: \`${profileData.pkmnhomecode}\``
         };
 
-        
+        const Emoji = client.emojiList
+        const i = Emoji.indexOf('<:PokeCoin:860656640457441300>');
+        const PokeCoin = Emoji[i]
         const fullstar = '★'
         const emptystar = '☆'
         const calc = 5 - profileData.prestige
@@ -52,7 +53,7 @@ module.exports = {
             { name: 'Level', value: `${userStats.level}`, inline: true },
             { name: '\u200b', value: '\u200b', inline: false, inline: true},
             { name: 'Prestige', value: `${starstring}`, inline: true},  
-            { name: 'Money', value: `Wallet: ${profileData.coins} coins \n Bank: ${profileData.bank} coins`},
+            { name: 'Money', value: `Wallet: ${profileData.coins} ${PokeCoin} \n Bank: ${profileData.bank} ${PokeCoin}`},
             { name: 'Experience', value: `You currently have ${userStats.xp} xp. \n You need ${(userStats.xpToNextLevel - userStats.xp)} xp to get to the next level`},
             { name: 'Connections', value: `${switchcode} \n ${pkmngocode} \n ${pkmnhomecode}`, inline: true},
             { name: 'Misc', value: `Reputation: ${profileData.reputation}` },

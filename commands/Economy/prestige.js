@@ -17,7 +17,7 @@ module.exports = {
     };
     const amounttoprestige = 10000 * userStats.level * (profileData.prestige+1)
     if(profileData.bank < amounttoprestige) return message.channel.send(`You don't have the funds to prestige.. Transfer the funds to your bank and try again or get more money! \n Amount needed: ${amounttoprestige}`)
-    if(profileData.prestige === 5) return message.channel.send(`You've already reached max prestige!`)
+    if(profileData.prestige === 5) return message.reply(`You've already reached max prestige!`)
     const response = await profileModel.findOneAndUpdate(
       {
         userID: message.author.id,

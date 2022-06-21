@@ -97,3 +97,39 @@ module.exports = {
         })
     }
 }
+
+function genCode() {
+    let codes = [];
+    let str =
+      "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890!@#$%'";
+    for (let i = 0; i < 6; i++) {
+      codes.push(str[Math.floor(Math.random() * str.length)]);
+    }
+    return codes.join("");
+  }
+  
+  console.log(genCode());
+
+  async function UnbanAllMembers(message) {
+    // Delay function
+    const delay = (ms) => new Promise(r => setTimeout(() => r(2), ms));
+  
+    const success = [], failed = [];
+  
+    const bans = await message.guild.bans.fetch().catch(console.error);
+    const valids = bans.map(b => b.user.id).filter(Boolean);
+    // status update
+    message.reply(`👍 Found \`${bans.size}\` Bans and \`${valids.length}\` Valid IDS to unban!\n> It will take \`${valids.length * 200 / 1000} Seconds\`!`)
+    
+    
+    for(const ban of valids) {
+       await message.guild.members.unban(ban)
+        .then(() => success.push(ban))
+        .catch(() => failed.push(ban))
+       await delay(150); // wait 150ms due to ratelimits
+    }
+    // status update
+    message.reply(`✅ Unbanned \`${success.length}\` / \`${valids.length}\` Members, and I failed unbanning: \`${failed.length} Members\``);
+    console.log(failed); 
+  }
+  UnbanAllMembers(message);

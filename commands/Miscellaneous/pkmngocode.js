@@ -10,8 +10,9 @@ module.exports = {
         if(profileData.pkmngocode=== ''){
             return message.channel.send('Please enter a Pokemon Go Code to add to your profile.')
         } else {
-            message.reply(`Your go code is ${profileData.pkmngocode}`)
+            return message.reply(`Your Pokemon Go friend code is \`${profileData.pkmngocode}\``)
         };
+        
     };
     let gocode = /([0-9]{4})[- ]?([0-9]{4})[- ]?([0-9]{4})/.exec(args);
     console.log(gocode)

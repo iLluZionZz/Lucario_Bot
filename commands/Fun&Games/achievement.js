@@ -1,5 +1,6 @@
 module.exports = {
     name: 'achievement',
+    cooldown: 5,
     description: 'Create your own Minecraft Achievement!',
     //Use your own execute parameters
     execute(client, message, args, cmd) {

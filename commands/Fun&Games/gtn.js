@@ -26,7 +26,7 @@ function guildAttemptsMap(message) {
 module.exports = {
     name: "guessthenumber",
     aliases: ['gtn', 'guesseasy'],
-    category: "games",
+    cooldown: 60,
     description: {
         usage: 'guesseasy <guesseasy number>',
         content: "Try and guess the number!",

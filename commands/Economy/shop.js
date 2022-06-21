@@ -3,7 +3,8 @@ module.exports = {
   name: "shop",
   aliases: "store",
   cooldown: 5,
-  async execute(client, message, args, Discord, profileData){
+  async execute (client, message, args, Discord, profileData){
+    if(message.length >= 1) return;
     let shop_data = JSON.parse(Buffer.from(fs.readFileSync('shop.json')).toString());
     let index = (args[0] || "1");
     let page = shop_data.pages[index];
@@ -17,7 +18,6 @@ module.exports = {
     .setColor("RANDOM");
 
     for(let item of page.items){
-      console.log(item);
       if('hidden' in item){
         if(!item.hidden){
           continue;

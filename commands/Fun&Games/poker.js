@@ -11,6 +11,7 @@ module.exports = {
     name: 'poker',
     description: "Creates a Discord Game in VC - Poker Night",
     aliases: ['pokernight'],
+    cooldown: 20,
     execute(client, message, args) {
 
         const channel = message.member.voice.channel;

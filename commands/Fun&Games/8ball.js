@@ -1,5 +1,6 @@
 module.exports = {
     name: '8ball',
+    cooldown: 5,
     description: 'Asks a question and let the bot determine your fate :sparkler:',
     async execute(client, message, args, Discord) {
       if (!args[0]) return message.channel.send('Please ask a full question!'); // return if no question is commenced

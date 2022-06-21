@@ -103,13 +103,13 @@ module.exports = {
         
         collector.on('collect', async interaction => {
             let remainingballs = 3 - numberofballsthrown
-            const baitperturn = 1 //Set to "1" (technically 2) to prevent people from spamming bait.
+            const baitperturn = 2 //Set to "2" (technically 3) to prevent people from spamming bait.
 
             if(pokemonaggression > 6){ //Reactionary text to bait or mud or throwing a ball
                 var reaction = 'The Pokemon is angry!'
-            } else if (pokemonaggression >= 4.6 && pokemonaggression <= 5.9){
+            } else if (pokemonaggression >= 4.1 && pokemonaggression <= 5.9){
                 var reaction = 'The Pokemon is visibly upset.'
-            }else if (pokemonaggression >= 3 && pokemonaggression <= 4.5){
+            }else if (pokemonaggression >= 3 && pokemonaggression <= 4){
                 var reaction = 'The Pokemon appears a bit bothered.'
             } else if (pokemonaggression >= 1.6 && pokemonaggression <= 3){
                 var reaction = 'The Pokemon is unbothered by your presence'
@@ -128,25 +128,29 @@ module.exports = {
                 .setColor("#000000");
             const Mudembed = new Discord.MessageEmbed()
                 .setAuthor(`You threw some mud.`)
-                .setDescription(`Balls remaining: ${remainingballs} \n RARITY: ${pokemonrarity} \n ${reaction}`)
+                .setDescription(`Balls remaining: ${remainingballs} \n RARITY: ${pokemonrarity}`)
                 .setImage(`attachment://${pokemonname.toLowerCase()}.gif`)
-                .setColor("#000000");
+                .setColor("#000000")
+                .setFooter({ text: `${reaction}` });
             const Fledembed = new Discord.MessageEmbed()
                 .setAuthor(`The wild ${shinyplaceholder}${pokemonname} Fled..`)
                 .setDescription(`Maybe we'll catch one next time.`)
+                .setImage(`attachment://${pokemonname.toLowerCase()}.gif`)
                 .setColor("#000000");
             const Angryfleeembed = new Discord.MessageEmbed()
                 .setAuthor(`The wild ${shinyplaceholder}${pokemonname} Fled cause it got too angry!`)
                 .setDescription(`Maybe we'll catch one next time.`)
+                .setImage(`attachment://${pokemonname.toLowerCase()}.gif`)
                 .setColor("#000000");
             const Runembed = new Discord.MessageEmbed()
                 .setAuthor("You ran away.")
+                .setImage(`attachment://${pokemonname.toLowerCase()}.gif`)
                 .setDescription(`:(`)
                 .setColor("#000000");
 
             amountofinteractions++
             if(amountofinteractions >= 10){ //Take too many turns, pokemon flees.
-                var embedplaceholder = Fledembed
+                    var embedplaceholder = Fledembed
                     row.components[0].setDisabled(true)
                     row.components[1].setDisabled(true)
                     row.components[2].setDisabled(true)
@@ -159,7 +163,7 @@ module.exports = {
                 row.components[1].setDisabled(false)
                 numberofballsthrown++
                 let remainingballs = 3 - numberofballsthrown
-                let catchcalculator = (numberofballsthrown + pokemonaggression) / rarityid //Calculate every interaction
+                let catchcalculator = (numberofballsthrown + pokemonaggression) * rarityid //Calculate every interaction
                 console.log(catchcalculator)
 
                 const Angryembed = new Discord.MessageEmbed()
@@ -206,15 +210,24 @@ module.exports = {
                 }
                 const Baitembed = new Discord.MessageEmbed()
                 .setTitle(`You threw some bait!`)
-                .setDescription(`Balls remaining: ${remainingballs} \n RARITY: ${pokemonrarity} \n ${flavourtext} \n${reaction}`)
+                .setDescription(`Balls remaining: ${remainingballs} \n RARITY: ${pokemonrarity}`)
                 .setImage(`attachment://${pokemonname.toLowerCase()}.gif`)
-                .setColor("#000000");
+                .setColor("#000000")
+                .setFooter({ text: `${flavourtext} \n${reaction}` });
                 var embedplaceholder = Baitembed
             } else if (interaction.customId === 'mud') {
                 row.components[1].setDisabled(false)
                 baitused = 0;
                 pokemonaggression++
                 var embedplaceholder = Mudembed
+                if(pokemonaggression > 6){
+                    var embedplaceholder = Angryfleeembed
+                    row.components[0].setDisabled(true)
+                    row.components[1].setDisabled(true)
+                    row.components[2].setDisabled(true)
+                    row.components[3].setDisabled(true)
+                    collector.stop()
+                }
             } else if (interaction.customId === 'run') {
                 var embedplaceholder = Runembed
                 row.components[0].setDisabled(true)

@@ -1,4 +1,5 @@
 module.exports = async function (Discord, client, oldMessage, newMessage) {
+    if(oldMessage.embeds.length === 0 && newMessage.embeds.length === 1 ) return; //Discord is embeding a video or gif
     if(newMessage.author.bot) return;
     if(newMessage.content.length >= 200) return; //Embed fields can only fit 256 characters.
     

@@ -2,7 +2,7 @@ const profileModel = require("../../models/profileSchema");
 
 module.exports = {
     name: "inventory",
-    aliases: ['inv'],
+    aliases: ['inv', 'bag'],
     cooldown: 10,
     async execute(client, message, args, Discord, profileData){
 

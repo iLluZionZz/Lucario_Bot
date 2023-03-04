@@ -5,6 +5,7 @@ module.exports = {
     description: 'Return a user(s) avatar picture!',
     //Use your own execute parameters
     async execute(client, message, args, cmd) {
+        if(!args[0]) return;
         const user = message.mentions.users.first() || client.users.cache.get(args[0]) || await client.users.fetch(args[0]).catch(err => undefined);
         const data = await axios.get(`https://discord.com/api/users/${user.id}`, {
             headers: {

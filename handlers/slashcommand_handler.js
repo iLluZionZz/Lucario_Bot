@@ -16,6 +16,7 @@ module.exports = async (client, Discord) =>{
     client.on("ready", async () => {
         // Register for a single guild
         await client.guilds.cache.get("579837419449221233").commands.set(arrayOfSlashCommands);
+        console.log('Slash Commands Loaded!')
 
         // Register for all the guilds the bot is in
         // await client.application.commands.set(arrayOfSlashCommands);

@@ -1,25 +1,33 @@
+const Discord = require("discord.js");
 const fs = require ('fs')
 const profileModel = require("../../models/profileSchema");
 const jsonfile = require('jsonfile'); //Everything we need for stuff to work blah blah
+
 module.exports = {
-    name: 'profile',
-    description: "Displays a user profile",
-    cooldown: 10,
-    async execute (client, message, args, Discord, cmd){
-        //let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.get(message.author.id) - DISCORD GUILDMEMBER, We need Userid.
-        let user = message.mentions.users.first() || message.author
+  name: "Profile",
+  type: 2,
+   /**
+     *
+     * @param {Client} client
+     * @param {UserContextMenuInteraction} interaction
+     * @param {String[]} args
+     */
+  run: async (client, interaction, args) => {
+    let member = await interaction.guild.members.fetch(interaction.targetId)
+        const user = member.user
         const userid = user.id
-        if(!user) return message.channel.send('Something went wrong. Please report this as a bug or ping Ethan to find out what happened.')
+        if(!user) return interaction.reply('Something went wrong. Please report this as a bug or ping Ethan to find out what happened.')
         
         if(fs.existsSync('stats.json')) {
             stats = jsonfile.readFileSync('stats.json'); // Load the Stats for XP system before everything else
         } else {
-            return
+            return interaction.reply({ephemeral: true, content: 'This person has no profile!'})
         }
-        const guildstats = stats[message.guild.id]
+        const guildstats = stats[interaction.guild.id]
         const userStats = guildstats[userid];
 
         let profileData = await profileModel.findOne({ userID: userid })
+        if(!profileData) return interaction.reply({ephemeral: true, content: 'This person has no profile!'})
 
         if(profileData.switchcode == ''){
             var switchcode = 'Switch: '
@@ -61,11 +69,10 @@ module.exports = {
             { name: 'Misc', value: `Reputation: ${profileData.reputation}` },
         )
         .setTimestamp(); 
-        //.setFooter('This message will be deleted in 20 seconds.');
-    message.channel.send({ embeds: [exampleEmbed] })
+        await interaction.reply({ephemeral: true, embeds: [exampleEmbed]})
     // .then(msg => {
     //     setTimeout(() => msg.delete(), 20000)
     // })
     // .catch()
-    }
-}
+  },
+};

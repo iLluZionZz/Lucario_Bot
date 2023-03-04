@@ -1,7 +1,4 @@
-const data = new require('@discordjs/builders').SlashCommandBuilder()
-        .setName('rps')
-        .setDescription('Rock Paper Scissors.')
-
+const Discord = require('discord.js')
 module.exports = {
     name: 'rps',
     description: 'Rock Paper Scissors.',
@@ -11,11 +8,11 @@ module.exports = {
    * @param {CommandInteracion} interaction
    * @param {String[]} args
    */
-    run: async (interaction, client, args) => {
+    run: async (client, interaction, args) => {
         let hand = [{ txt: 'Rock', emoji: '✊', index: 0 }, { txt: 'Paper', emoji: '🤚', index: 1 }, { txt: 'Scissors', emoji: '✌️', index: 2 }]; // Defining Moves
         let botMove = hand[Math.floor(Math.random() * 3)]; // Making a random move
 
-        await interaction.reply({ // Prompting user to make a move
+        await interaction.editReply({ // Prompting user to make a move
             embeds: [
                 new Discord.MessageEmbed() // RPS embed
                     .setColor('RANDOM')

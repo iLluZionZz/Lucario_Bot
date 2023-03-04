@@ -9,9 +9,9 @@ module.exports = {
 
 
     const roleColor =
-      message.guild.me.displayHexColor === "#000000"
+      message.guild.members.me.displayHexColor === "#000000"
         ? "#ffffff"
-        : message.guild.me.displayHexColor;
+        : message.guild.members.me.displayHexColor;
 
     if (!args[0]) {
       let categories = [];
@@ -45,7 +45,7 @@ module.exports = {
         .setTitle("Help has arrived:")
         .addFields(categories)
         .setDescription(
-          `Here’s a list of all my functional commands. My prefix is " \`${process.env.PREFIX}\` ". \n Use \`${process.env.PREFIX}help\` followed by a command to get additional info!`
+          `Here’s a list of all my functional commands. My prefix is " \`${process.env.PREFIX}\` ". \n Use \`${process.env.PREFIX}help\` followed by a command to get additional info! \n To get a list of my slashcommands, use /help!`
         )
         .setFooter(
           `Requested by ${message.author.tag}`,

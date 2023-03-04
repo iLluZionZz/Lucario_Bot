@@ -8,6 +8,7 @@ module.exports = {
           name: "question",
           description: "The question you want to ask the magic 8ball",
           type: 'STRING',
+          required: true,
       }
   ],
    /**

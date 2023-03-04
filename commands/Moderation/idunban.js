@@ -1,6 +1,6 @@
 module.exports = {
     name: "idunban",
-    description: "UnBan a user with their ID",
+    description: "Unban a user with their ID",
     async execute (client, message, args, Discord){
         
         if (!message.member.permissions.has("BAN_MEMBERS")) return message.reply("**You Don't Have The Permission To ban A User!**");

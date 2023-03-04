@@ -1,22 +1,67 @@
 const createTranscript = require('discord-html-transcripts');
 
 module.exports = async function (Discord, client, interaction) {
+    if(interaction.isUserContextMenu()){
+        const cmd = client.slashCommands.get(interaction.commandName);
+        if (!cmd) return interaction.followUp({ content: "An error has occured " });
+        
+        const args = [];
+        
+        try {
+        cmd.run(client, interaction, args);
+        } catch (err) {
+            interaction.reply('An error has occured.')
+            console.log(err);
+        }
+    };
+
     if(interaction.isCommand()) {
+        await interaction.deferReply({ ephemeral: false }).catch(() => {});
+      
+        const cmd = client.slashCommands.get(interaction.commandName);
+        if (!cmd)
+            return interaction.followUp({ content: "An error has occured " });
+      
+        const args = [];
+      
+        for (let option of interaction.options.data) {
+            if (option.type === "SUB_COMMAND") {
+                if (option.name) args.push(option.name);
+                option.options?.forEach((x) => {
+                    if (x.value) args.push(x.value);
+                });
+            } else if (option.value) args.push(option.value);
+        }
+        interaction.member = interaction.guild.members.cache.get(
+            interaction.user.id
+        );
+        try {
+        cmd.run(client, interaction, args);
+        } catch (err) {
+            interaction.reply('An error has occured.')
+            console.log(err);
+        }
         
-        await interaction.deferReply({ empheral: false }).catch(() => {});
-        const cmd = client.slashCommands.get(interaction.commandName)
-        if(!cmd) return interaction.followUp({content: `An error has occured!`})
-        const args = []
-        interaction.options.data.map((x) => {
-            args.push(x.value)
-        });
+        // try {
+        //     cmd.execute(interaction, client, args)
+        // } catch (err) {
+        //     interaction.reply('An error has occured.')
+        //     console.log(err);
+        // }
         
-        
-        cmd.execute(interaction, client, args)
+    };
+
+    if(interaction.isContextMenu()){
+        return
+    };
+
+    if(interaction.isModalSubmit()){
+        return
     };
     
+    
+    
     if(interaction.isButton()){
-        console.log('Interaction found');
             if (interaction.customId === 'report' || interaction.customId === 'support' || interaction.customId === 'modmail') {
                 const randomid = Math.floor(Math.random() * 90000) + 10000;
                 const ticketreason = interaction.customId
@@ -69,6 +114,9 @@ module.exports = async function (Discord, client, interaction) {
                     embeds: [embed],
                     components: [del]
                 })
+                if(interaction.customId = 'modmail'){
+                    channel.send({ content: '<@&579854468615766016>, <@&827682991131459585>'})
+                };
                 const dmembed = new Discord.MessageEmbed()
                     .setAuthor(interaction.guild.name, interaction.guild.iconURL({
                         dynamic: true
@@ -145,13 +193,13 @@ module.exports = async function (Discord, client, interaction) {
                     { name: "🕑 Last Refreshed", value: `<t:${(Math.floor(Date.now() / 1000))}:R>`, inline: true },
                     { name: `Latency`, value: `\`${(client.ws.ping.toFixed(2))}ms\``, inline: true },
                     { name: `Uptime`, value: `\`${formattime.toFixed(2)}\` ${variable}`, inline: true },
+                    { name: 'Platform:', value: `\`${process.platform} ${process.arch}\``, inline: true },
                     { name: `Commands`, value: `\`${client.commands.size}\``, inline: true },
                     { name: "Servers", value: `\`${client.guilds.cache.size}\``, inline: true },
-                    { name: "Channels", value: `\`${client.channels.cache.size}\``, inline: true },
                     { name: "Users", value: `\`${client.guilds.cache.filter((e) => e.memberCount).reduce((a, g) => a + g.memberCount, 0)}\``, inline: true },
                     )
                 .addField("**Cached Data:**", `Users: \`${client.users.cache.size}\`\n Emojis: \`${client.emojis.cache.size}\``)
-                .addField("**Memory:**", `\`${(process.memoryUsage().rss / 1024 / 1024).toFixed(2)}\` MB RSS \n \`${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}\` MB Heap`, true)
+                .addField("**Memory:**", `\`${(process.memoryUsage().rss / 1024 / 1024).toFixed(2)}\` MB RSS \n \`${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}\` MB Heap (in use)\n \`${(process.memoryUsage().heapTotal / 1024 / 1024).toFixed(2)}\` MB Heap (Total)`, true)
 
 
                 await interaction.update({

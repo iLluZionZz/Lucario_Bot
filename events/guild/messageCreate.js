@@ -8,7 +8,12 @@ module.exports = async (Discord, client, message) => {
     if(fs.existsSync('stats.json')) {
         stats = jsonfile.readFileSync('stats.json'); // Load the Stats for XP system before everything else
     }
-    
+
+    //AUTOMOD
+    if(message.content.length >= 1000){
+        message.delete();
+    } 
+
     //Experience System
         if(message.author.id == client.user.id) 
             return;

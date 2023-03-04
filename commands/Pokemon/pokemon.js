@@ -13,6 +13,7 @@ module.exports = {
         const Dialga = client.emojis.cache.get("858193144821710858")
         const Snap = client.emojis.cache.get("858194001772150855")
         const Legends = client.emojis.cache.get("858197527748673557")
+        const PSV = client.emojis.cache.get("1080960021644464158")
         const newEmbed = new Discord.MessageEmbed()
         .setColor('#0375ff')
         .setTitle('Pokemon Links!')
@@ -25,6 +26,7 @@ module.exports = {
             {name: `Pokemon Snap ${Snap}`, value: '[The Pokemon Company](https://newpokemonsnap.pokemon.com/en-us/) \n [Serebii](https://www.serebii.net/newpokemonsnap/)', inline: true},
             {name: `Pokemon BD/SP ${Dialga}${Palkia}`, value: `[The Pokemon Company](https://diamondpearl.pokemon.com/en-us/) \n [Serebii](https://www.serebii.net/brilliantdiamondshiningpearl/)`, inline: true},
             {name: `Pokemon Legends: Arceus ${Legends}`, value: `[The Pokemon Company](https://legends.pokemon.com/en-us/) \n [Serebii](https://www.serebii.net/legendsarceus/)`, inline: true},
+            {name: `Pokemon Scarlet/Violet ${PSV}`, value: `[The Pokemon Company](https://scarletviolet.pokemon.com/en-ca/s) \n [Serebii](https://www.serebii.net/scarletviolet/)`, inline: true},
             {name: `Pokemon Unite ${Unite}`, value: `[The Pokemon Company](https://unite.pokemon.com/en-us/) \n [Serebii](https://www.serebii.net/pokemonunite/)`, inline: true},
             {name: '\u200B', value: '\u200B', inline: true},
         )

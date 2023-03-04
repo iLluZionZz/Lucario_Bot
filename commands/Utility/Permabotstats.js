@@ -30,9 +30,9 @@ module.exports = {
             { name: "🕑 Last Refreshed", value: `<t:${(Math.floor(Date.now() / 1000))}:R>`, inline: true },
             { name: `Latency`, value: `\`${(client.ws.ping.toFixed(2))}ms\``, inline: true },
             { name: `Uptime`, value: `\`${formattime.toFixed(2)}\` ${variable}`, inline: true },
+            { name: 'Platform:', value: `\`${process.platform} ${process.arch}\``, inline: true },
             { name: `Commands`, value: `\`${client.commands.size}\``, inline: true },
             { name: "Servers", value: `\`${client.guilds.cache.size}\``, inline: true },
-            { name: "Channels", value: `\`${client.channels.cache.size}\``, inline: true },
             { name: "Users", value: `\`${client.guilds.cache.filter((e) => e.memberCount).reduce((a, g) => a + g.memberCount, 0)}\``, inline: true },
             )
         .addField("**Cached Data:**", `Users: \`${client.users.cache.size}\`\n Emojis: \`${client.emojis.cache.size}\``)

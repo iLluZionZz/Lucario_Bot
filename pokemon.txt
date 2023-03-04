@@ -800,12 +800,12 @@ Guzzlord
 Necrozma
 Magearna
 Marshadow
-Poipole 
-Naganadel 
-Stakataka 
-Blacephalon 
+Poipole
+Naganadel
+Stakataka
+Blacephalon
 Zeraora 
-Meltan 
+Meltan
 Melmetal
 Grookey
 Thwackey

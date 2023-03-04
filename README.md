@@ -26,3 +26,4 @@ The .ENV file MUST contain:
 - MONGODB_SRV - Token for logging into mongoDB 
 - DISCORD_TOKEN - Bot Token for logging onto discord
 - WELCOME - 0 or 1, for a welcome message - 1 turns it on. 
+
